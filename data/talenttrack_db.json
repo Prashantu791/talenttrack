@@ -1,0 +1,1197 @@
+﻿{
+    "company_profile":  {
+                            "name":  "TalentTrack",
+                            "headquarters":  "TalentTrack Tech Park, Tower B, 4th Floor, Bellandur Outer Ring Road, Bengaluru, Karnataka 560103",
+                            "campus_contact":  "+91 80 4910 8800",
+                            "visitor_gate":  "Gate 2 (Visitor Security Desk \u0026 Badging)",
+                            "total_openings":  14,
+                            "fresher_openings":  5,
+                            "mid_openings":  4,
+                            "senior_openings":  5
+                        },
+    "jobs":  [
+                 {
+                     "id":  "job-fresher-1",
+                     "title":  "Graduate Engineer Trainee (GET) - Software",
+                     "tier":  "Fresher",
+                     "department":  "Core Engineering",
+                     "experience":  "0 - 1 Yr",
+                     "location":  "Bengaluru (Hybrid)",
+                     "salary":  "₹6.5 - 9.0 LPA",
+                     "openings":  2,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE in CS, IT, ECE or MCA (2025/2026 Grad)",
+                                         "min_cgpa":  "7.0 or 70%",
+                                         "skills":  [
+                                                        "Data Structures",
+                                                        "Java or Python",
+                                                        "Basic SQL",
+                                                        "Problem Solving"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV \u0026 Academic Shortlisting",
+                                                   "mode":  "Online / Automated"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Online Coding \u0026 Aptitude Test",
+                                                   "mode":  "Online (Hackerearth/TestGorilla)"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "Virtual Tech Screening",
+                                                   "mode":  "Online (Google Meet)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "In-Office Technical \u0026 HR Discussion",
+                                                   "mode":  "Offline (TalentTrack Bengaluru HQ)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-fresher-2",
+                     "title":  "Associate Frontend Developer",
+                     "tier":  "Fresher",
+                     "department":  "Web Engineering",
+                     "experience":  "0 - 2 Yrs",
+                     "location":  "Bengaluru (In-Office)",
+                     "salary":  "₹7.0 - 10.5 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BCA / MCA / B.Sc Computer Science",
+                                         "min_cgpa":  "6.5 or above",
+                                         "skills":  [
+                                                        "JavaScript (ES6+)",
+                                                        "HTML5 \u0026 CSS3",
+                                                        "React Basics",
+                                                        "Git"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "Portfolio \u0026 Resume Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Frontend Machine Coding Task",
+                                                   "mode":  "Online Take-Home"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Code Walkthrough \u0026 UI Pair Programming",
+                                                   "mode":  "Offline (TalentTrack Bengaluru HQ)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "Final Leadership \u0026 Culture Debrief",
+                                                   "mode":  "Offline (Campus Office)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-fresher-3",
+                     "title":  "Junior QA Automation Engineer",
+                     "tier":  "Fresher",
+                     "department":  "Quality Engineering",
+                     "experience":  "0 - 2 Yrs",
+                     "location":  "Pune / Bengaluru",
+                     "salary":  "₹6.0 - 9.5 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE / MCA",
+                                         "min_cgpa":  "6.5 or above",
+                                         "skills":  [
+                                                        "Python or Java",
+                                                        "Selenium Basics",
+                                                        "Manual Testing Fundamentals",
+                                                        "Postman API"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Online Test (Test Design \u0026 Automation)",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Practical Assessment \u0026 Lab Round",
+                                                   "mode":  "Offline (Pune Tech Park)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-fresher-4",
+                     "title":  "Junior Data Analyst",
+                     "tier":  "Fresher",
+                     "department":  "Data \u0026 Analytics",
+                     "experience":  "0 - 1 Yr",
+                     "location":  "Hyderabad / Remote",
+                     "salary":  "₹6.5 - 9.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / B.Sc Statistics / Mathematics / MCA",
+                                         "min_cgpa":  "7.0 or above",
+                                         "skills":  [
+                                                        "SQL",
+                                                        "Excel / Power BI",
+                                                        "Python (Pandas)",
+                                                        "Data Wrangling"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Screening",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "SQL \u0026 Case Study Challenge",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Case Presentation",
+                                                   "mode":  "Offline (Hyderabad Office)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-mid-1",
+                     "title":  "Software Development Engineer II (Backend)",
+                     "tier":  "Mid-Level",
+                     "department":  "Core Platform",
+                     "experience":  "2 - 5 Yrs",
+                     "location":  "Bengaluru (Hybrid)",
+                     "salary":  "₹18.0 - 26.0 LPA",
+                     "openings":  2,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE / MCA / MS in Computer Science",
+                                         "min_cgpa":  "Any graduate with strong experience",
+                                         "skills":  [
+                                                        "Golang or Java",
+                                                        "Microservices",
+                                                        "PostgreSQL / Redis",
+                                                        "Docker \u0026 Kubernetes"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "System Design \u0026 Concurrency Round",
+                                                   "mode":  "Online Video Call"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Whiteboard Architecture Round",
+                                                   "mode":  "Offline (TalentTrack Bengaluru HQ)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "Executive Bar Raiser Discussion",
+                                                   "mode":  "Offline (TalentTrack Bengaluru HQ)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-mid-2",
+                     "title":  "Product Designer (UI/UX \u0026 Design Systems)",
+                     "tier":  "Mid-Level",
+                     "department":  "Product Design",
+                     "experience":  "2 - 4 Yrs",
+                     "location":  "Mumbai / Bengaluru",
+                     "salary":  "₹15.0 - 22.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "Design Degree or equivalent proven portfolio",
+                                         "min_cgpa":  "Portfolio based",
+                                         "skills":  [
+                                                        "Figma",
+                                                        "Design Tokens",
+                                                        "Enterprise SaaS Workflows",
+                                                        "User Research"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "Portfolio Review \u0026 Shortlist",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Virtual Design Challenge",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Design Crit \u0026 Interactive Discussion",
+                                                   "mode":  "Offline (Mumbai Studio)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-mid-3",
+                     "title":  "DevOps \u0026 Cloud Engineer",
+                     "tier":  "Mid-Level",
+                     "department":  "Infrastructure",
+                     "experience":  "3 - 5 Yrs",
+                     "location":  "Bengaluru",
+                     "salary":  "₹17.0 - 25.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE in CS / IT",
+                                         "min_cgpa":  "Any recognized degree",
+                                         "skills":  [
+                                                        "AWS",
+                                                        "Terraform",
+                                                        "Kubernetes",
+                                                        "CI/CD Pipelines",
+                                                        "Linux Scripting"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Virtual Infra Troubleshooting Round",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Hands-On Cluster Debugging \u0026 Cultural Fit",
+                                                   "mode":  "Offline (Bengaluru HQ)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-senior-1",
+                     "title":  "Lead Frontend Engineer",
+                     "tier":  "Senior-Level",
+                     "department":  "Web Engineering",
+                     "experience":  "6 - 10 Yrs",
+                     "location":  "Bengaluru (Hybrid / Onsite Rounds)",
+                     "salary":  "₹34.0 - 48.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE / M.Tech / MS in CS or equivalent",
+                                         "min_cgpa":  "Proven enterprise scale execution",
+                                         "skills":  [
+                                                        "Microfrontends",
+                                                        "React Architecture",
+                                                        "Web Workers \u0026 V8 Perf",
+                                                        "System Design"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "Executive Resume Shortlisting",
+                                                   "mode":  "Online (Cleared)"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Technical Round 1: Core Algorithms",
+                                                   "mode":  "Online Video (Cleared)"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "Technical Round 2: System \u0026 UI Architecture",
+                                                   "mode":  "Online / Debriefed (Cleared)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "In-Office Architecture Deep-Dive \u0026 Whiteboard Session",
+                                                   "mode":  "Offline (TalentTrack Bengaluru HQ)"
+                                               },
+                                               {
+                                                   "round":  5,
+                                                   "name":  "In-Office Executive Leadership \u0026 Offer Discussion",
+                                                   "mode":  "Offline (Office Discussion Room 4B)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-senior-2",
+                     "title":  "Senior Backend Architect (Go/Distributed)",
+                     "tier":  "Senior-Level",
+                     "department":  "Core Platform",
+                     "experience":  "7 - 12 Yrs",
+                     "location":  "Pune / Bengaluru",
+                     "salary":  "₹40.0 - 55.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / M.Tech / PhD in Computer Science",
+                                         "min_cgpa":  "High-throughput distributed systems experience",
+                                         "skills":  [
+                                                        "Golang",
+                                                        "Raft Consensus",
+                                                        "Kafka Distributed Queues",
+                                                        "gRPC",
+                                                        "Zero-Downtime Deployments"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Distributed Systems Technical Round",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Architecture Defense \u0026 Live Whiteboard",
+                                                   "mode":  "Offline (Pune Tech Park HQ)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "VP of Engineering \u0026 HR Discussion",
+                                                   "mode":  "Offline (In-Office)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-senior-3",
+                     "title":  "Staff Machine Learning Engineer",
+                     "tier":  "Senior-Level",
+                     "department":  "Artificial Intelligence",
+                     "experience":  "6 - 11 Yrs",
+                     "location":  "Bengaluru",
+                     "salary":  "₹45.0 - 62.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "Master\u0027s / PhD or equivalent deep applied ML background",
+                                         "min_cgpa":  "Published work or high-scale LLM deployment experience",
+                                         "skills":  [
+                                                        "PyTorch",
+                                                        "LLM Fine-Tuning \u0026 Quantization",
+                                                        "CUDA / Triton",
+                                                        "GPU Serving (vLLM/TensorRT)"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV \u0026 Research Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Machine Learning Architecture Round",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office AI Model Optimization \u0026 Lab Session",
+                                                   "mode":  "Offline (Bengaluru AI Lab)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "Founder \u0026 Executive Discussion",
+                                                   "mode":  "Offline (In-Office)"
+                                               }
+                                           ]
+                 },
+                 {
+                     "id":  "job-senior-4",
+                     "title":  "Principal DevOps Architect",
+                     "tier":  "Senior-Level",
+                     "department":  "Infrastructure \u0026 Cloud",
+                     "experience":  "8 - 14 Yrs",
+                     "location":  "Bengaluru",
+                     "salary":  "₹45.0 - 65.0 LPA",
+                     "openings":  1,
+                     "eligibility":  {
+                                         "education":  "B.Tech / BE in CS / IT",
+                                         "min_cgpa":  "Proven multi-cloud multi-region management",
+                                         "skills":  [
+                                                        "Kubernetes Mesh",
+                                                        "Terraform Cloud",
+                                                        "Zero-Trust Security",
+                                                        "Observability (Prometheus/Grafana)"
+                                                    ]
+                                     },
+                     "interview_process":  [
+                                               {
+                                                   "round":  1,
+                                                   "name":  "CV Shortlisting",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  2,
+                                                   "name":  "Cloud Resiliency Assessment",
+                                                   "mode":  "Online"
+                                               },
+                                               {
+                                                   "round":  3,
+                                                   "name":  "In-Office Disaster Recovery Simulation \u0026 Security Board",
+                                                   "mode":  "Offline (Bengaluru HQ)"
+                                               },
+                                               {
+                                                   "round":  4,
+                                                   "name":  "Executive Discussion",
+                                                   "mode":  "Offline (In-Office)"
+                                               }
+                                           ]
+                 }
+             ],
+    "candidates":  [
+                       {
+                           "id":  "cand-ad3caaa4",
+                           "name":  "Rahul Sharma",
+                           "initials":  "RS",
+                           "role":  "DevOps \u0026 Cloud Engineer",
+                           "tier":  "Fresher",
+                           "stage":  "Step 3: Final HR Round",
+                           "current_round_number":  1,
+                           "total_rounds":  5,
+                           "status":  "Shortlisted by Tech Team",
+                           "score":  8.8,
+                           "applied":  "Just now (Portal Application)",
+                           "email":  "rahul@talenttrack.com",
+                           "phone":  "+91 90000 00000",
+                           "location":  "India",
+                           "experience":  "0 Yrs Exp",
+                           "notice":  "30 Days Notice",
+                           "source":  "Careers Portal Registration",
+                           "tracking_code":  "TT-2026-5348",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false,
+                                                "round_title":  "In-Office Rounds Scheduled Post Step 3",
+                                                "venue":  "TalentTrack Bengaluru Campus"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "status":  "In Progress",
+                                               "step":  1,
+                                               "title":  "CV \u0026 Portfolio Shortlisting",
+                                               "mode":  "Online (Under Review)",
+                                               "date":  "Oct 12, 2026"
+                                           },
+                                           {
+                                               "status":  "Pending Shortlist",
+                                               "step":  2,
+                                               "title":  "Online Technical Assessment",
+                                               "mode":  "Online Coding Test",
+                                               "date":  "Tentative +2 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  3,
+                                               "title":  "Technical Screening Round",
+                                               "mode":  "Virtual Video Call",
+                                               "date":  "Tentative +4 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming (Office Visit)",
+                                               "step":  4,
+                                               "title":  "In-Office Technical Deep-Dive \u0026 Lab",
+                                               "mode":  "Offline (Come to Bengaluru HQ)",
+                                               "date":  "Tentative +7 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  5,
+                                               "title":  "In-Office Leadership \u0026 Culture Debrief",
+                                               "mode":  "Offline (Discussion Room 4B)",
+                                               "date":  "Tentative +9 Days"
+                                           },
+                                           {
+                                               "status":  "Final Milestone",
+                                               "step":  6,
+                                               "title":  "Offer Rollout \u0026 Joining Formalities",
+                                               "mode":  "Executive Offer",
+                                               "date":  "Tentative +12 Days"
+                                           }
+                                       ],
+                           "created_at":  "2026-10-12T13:19:54Z",
+                           "scores":  {
+                                          "cv_screening":  8.5,
+                                          "tech_assessment":  9,
+                                          "tech_interview":  8.8,
+                                          "hr_round":  null,
+                                          "overall":  8.8
+                                      },
+                           "history":  [
+                                           {
+                                               "date":  "2026-10-12 18:34",
+                                               "status":  "Shortlisted by Tech Team",
+                                               "note":  "Tech Round Cleared with Score: 8.8/10",
+                                               "stage":  "Step 3: Final HR Round",
+                                               "actionBy":  "Vikram Malhotra (Tech Round Interviewer)"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-76796b57",
+                           "name":  "sdfddf",
+                           "initials":  "S",
+                           "role":  "DevOps \u0026 Cloud Engineer",
+                           "tier":  "Fresher",
+                           "stage":  "Step 1: CV \u0026 Academic Shortlisting",
+                           "current_round_number":  1,
+                           "total_rounds":  5,
+                           "status":  "In Progress",
+                           "score":  8.5,
+                           "applied":  "Just now (Portal Application)",
+                           "email":  "abc@gmail.com",
+                           "phone":  "wewd",
+                           "location":  "India",
+                           "experience":  "0 Yrs Exp",
+                           "notice":  "30 Days Notice",
+                           "source":  "Careers Portal Registration",
+                           "tracking_code":  "TT-2026-2621",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false,
+                                                "round_title":  "In-Office Rounds Scheduled Post Step 3",
+                                                "venue":  "TalentTrack Bengaluru Campus"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "status":  "In Progress",
+                                               "step":  1,
+                                               "title":  "CV \u0026 Portfolio Shortlisting",
+                                               "mode":  "Online (Under Review)",
+                                               "date":  "Oct 12, 2026"
+                                           },
+                                           {
+                                               "status":  "Pending Shortlist",
+                                               "step":  2,
+                                               "title":  "Online Technical Assessment",
+                                               "mode":  "Online Coding Test",
+                                               "date":  "Tentative +2 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  3,
+                                               "title":  "Technical Screening Round",
+                                               "mode":  "Virtual Video Call",
+                                               "date":  "Tentative +4 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming (Office Visit)",
+                                               "step":  4,
+                                               "title":  "In-Office Technical Deep-Dive \u0026 Lab",
+                                               "mode":  "Offline (Come to Bengaluru HQ)",
+                                               "date":  "Tentative +7 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  5,
+                                               "title":  "In-Office Leadership \u0026 Culture Debrief",
+                                               "mode":  "Offline (Discussion Room 4B)",
+                                               "date":  "Tentative +9 Days"
+                                           },
+                                           {
+                                               "status":  "Final Milestone",
+                                               "step":  6,
+                                               "title":  "Offer Rollout \u0026 Joining Formalities",
+                                               "mode":  "Executive Offer",
+                                               "date":  "Tentative +12 Days"
+                                           }
+                                       ],
+                           "created_at":  "2026-10-12T13:06:33Z"
+                       },
+                       {
+                           "id":  "cand-6140a5e9",
+                           "name":  "Snehal Patil",
+                           "initials":  "SP",
+                           "role":  "Graduate Engineer Trainee (GET) - Software",
+                           "tier":  "Fresher",
+                           "stage":  "Step 2: Technical Interview",
+                           "current_round_number":  1,
+                           "total_rounds":  5,
+                           "status":  "In Progress",
+                           "score":  8.5,
+                           "applied":  "Just now (Portal Application)",
+                           "email":  "snehal.patil@engineering.edu",
+                           "phone":  "+91 98200 11990",
+                           "location":  "Pune, India",
+                           "experience":  "0 Yrs Exp",
+                           "notice":  "Immediate",
+                           "source":  "Careers Portal Registration",
+                           "tracking_code":  "TT-2026-5178",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false,
+                                                "round_title":  "In-Office Rounds Scheduled Post Step 3",
+                                                "venue":  "TalentTrack Bengaluru Campus"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "status":  "In Progress",
+                                               "step":  1,
+                                               "title":  "CV \u0026 Portfolio Shortlisting",
+                                               "mode":  "Online (Under Review)",
+                                               "date":  "Oct 12, 2026"
+                                           },
+                                           {
+                                               "status":  "Pending Shortlist",
+                                               "step":  2,
+                                               "title":  "Online Technical Assessment",
+                                               "mode":  "Online Coding Test",
+                                               "date":  "Tentative +2 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  3,
+                                               "title":  "Technical Screening Round",
+                                               "mode":  "Virtual Video Call",
+                                               "date":  "Tentative +4 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming (Office Visit)",
+                                               "step":  4,
+                                               "title":  "In-Office Technical Deep-Dive \u0026 Lab",
+                                               "mode":  "Offline (Come to Bengaluru HQ)",
+                                               "date":  "Tentative +7 Days"
+                                           },
+                                           {
+                                               "status":  "Upcoming",
+                                               "step":  5,
+                                               "title":  "In-Office Leadership \u0026 Culture Debrief",
+                                               "mode":  "Offline (Discussion Room 4B)",
+                                               "date":  "Tentative +9 Days"
+                                           },
+                                           {
+                                               "status":  "Final Milestone",
+                                               "step":  6,
+                                               "title":  "Offer Rollout \u0026 Joining Formalities",
+                                               "mode":  "Executive Offer",
+                                               "date":  "Tentative +12 Days"
+                                           }
+                                       ],
+                           "created_at":  "2026-10-12T11:18:34Z",
+                           "history":  [
+                                           {
+                                               "date":  "2026-10-12 18:34",
+                                               "status":  "In Progress",
+                                               "note":  "",
+                                               "stage":  "Step 2: Technical Interview",
+                                               "actionBy":  "Neha Gupta (HR Recruiter)"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-1",
+                           "name":  "Rahul Sharma",
+                           "initials":  "RS",
+                           "role":  "Lead Frontend Engineer",
+                           "tier":  "Senior-Level",
+                           "stage":  "Step 4: Selected / Offer Rolled Out",
+                           "current_round_number":  4,
+                           "total_rounds":  5,
+                           "status":  "Selected",
+                           "score":  8.9,
+                           "applied":  "3 days ago",
+                           "email":  "rahul.sharma@example.com",
+                           "phone":  "+91 98201 44521",
+                           "location":  "Bengaluru, India",
+                           "experience":  "8.5 Yrs Exp",
+                           "notice":  "30 Days Notice",
+                           "source":  "Company Careers Portal",
+                           "tracking_code":  "TT-2026-8812",
+                           "offline_pass":  {
+                                                "scheduled":  true,
+                                                "is_offline":  true,
+                                                "round_title":  "Round 4: In-Office Architecture Deep-Dive \u0026 Whiteboard Session",
+                                                "date_time":  "Oct 14, 2026 at 11:30 AM IST",
+                                                "venue":  "TalentTrack Tech Park, Tower B, 4th Floor, Room 4B (Architects Suite)",
+                                                "address":  "Bellandur Outer Ring Road, Near Ecospace, Bengaluru, Karnataka 560103",
+                                                "interviewers":  [
+                                                                     "Ananya Roy (Principal Architect)",
+                                                                     "Vikram Malhotra (Staff Software Engineer)"
+                                                                 ],
+                                                "instructions":  [
+                                                                     "Report at Gate 2 Visitor Reception desk 15 minutes prior to scheduled time.",
+                                                                     "Carry one valid Government Photo ID (Aadhaar / Driving License / Passport) for security visitor badge.",
+                                                                     "Bring your personal development laptop for interactive architecture \u0026 live whiteboard debrief.",
+                                                                     "TalentTrack visitor guest Wi-Fi and cafeteria parking pass will be activated upon arrival."
+                                                                 ],
+                                                "coordinator":  "Sneha Kulkarni (+91 98201 44500)",
+                                                "security_pass_code":  "VISITOR-TT-B4-8812"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "CV \u0026 Portfolio Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 6, 2026"
+                                           },
+                                           {
+                                               "step":  2,
+                                               "title":  "Technical Assessment: Algorithms \u0026 DOM",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 9, 2026"
+                                           },
+                                           {
+                                               "step":  3,
+                                               "title":  "Technical Round 2: System Architecture",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 12, 2026"
+                                           },
+                                           {
+                                               "step":  4,
+                                               "title":  "In-Office Architecture Deep-Dive",
+                                               "mode":  "Offline (In-Office Campus Visit)",
+                                               "status":  "Scheduled - Come to Office",
+                                               "date":  "Oct 14, 2026"
+                                           },
+                                           {
+                                               "step":  5,
+                                               "title":  "In-Office Leadership \u0026 Compensation Discussion",
+                                               "mode":  "Offline (Executive Office)",
+                                               "status":  "Upcoming",
+                                               "date":  "Tentative Oct 16"
+                                           }
+                                       ],
+                           "history":  [
+                                           {
+                                               "date":  "2026-10-12 13:17",
+                                               "status":  "Shortlisted by Tech Team",
+                                               "note":  "",
+                                               "stage":  "Step 3: Final HR Round",
+                                               "actionBy":  "Vikram Malhotra (Tech Round Interviewer)"
+                                           },
+                                           {
+                                               "date":  "2026-10-12 13:18",
+                                               "status":  "In Progress",
+                                               "note":  "",
+                                               "stage":  "Step 2: Technical Interview",
+                                               "actionBy":  "System Reset"
+                                           },
+                                           {
+                                               "date":  "2026-10-12 18:34",
+                                               "status":  "Shortlisted by Tech Team",
+                                               "note":  "Tech Round Cleared with Score: 8.8/10",
+                                               "stage":  "Step 3: Final HR Round",
+                                               "actionBy":  "Vikram Malhotra (Tech Round Interviewer)"
+                                           },
+                                           {
+                                               "date":  "2026-10-12 18:34",
+                                               "status":  "Selected",
+                                               "note":  "",
+                                               "stage":  "Step 4: Selected / Offer Rolled Out",
+                                               "actionBy":  "Priya Kulkarni (Final HR Interviewer)"
+                                           }
+                                       ],
+                           "scores":  {
+                                          "cv_screening":  8.5,
+                                          "tech_assessment":  9,
+                                          "tech_interview":  8.8,
+                                          "hr_round":  9.2,
+                                          "overall":  8.9
+                                      }
+                       },
+                       {
+                           "id":  "cand-2",
+                           "name":  "Priya Patel",
+                           "initials":  "PP",
+                           "role":  "Senior Backend Architect (Go/Distributed)",
+                           "tier":  "Senior-Level",
+                           "stage":  "Offer Extended",
+                           "current_round_number":  5,
+                           "total_rounds":  5,
+                           "status":  "Selected",
+                           "score":  9.4,
+                           "applied":  "12 days ago",
+                           "email":  "priya.patel@example.com",
+                           "phone":  "+91 97112 33489",
+                           "location":  "Pune, India",
+                           "experience":  "7 Yrs Exp",
+                           "notice":  "Immediate",
+                           "source":  "Employee Referral",
+                           "tracking_code":  "TT-2026-5521",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false,
+                                                "round_title":  "All In-Office Rounds Cleared",
+                                                "date_time":  "Completed",
+                                                "venue":  "TalentTrack Pune Campus",
+                                                "coordinator":  "Sneha Kulkarni"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "CV Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Sep 30, 2026"
+                                           },
+                                           {
+                                               "step":  2,
+                                               "title":  "Distributed Systems Technical Round",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 3, 2026"
+                                           },
+                                           {
+                                               "step":  3,
+                                               "title":  "In-Office Architecture Defense \u0026 Whiteboard",
+                                               "mode":  "Offline",
+                                               "status":  "Completed",
+                                               "date":  "Oct 7, 2026"
+                                           },
+                                           {
+                                               "step":  4,
+                                               "title":  "In-Office Executive HR Discussion",
+                                               "mode":  "Offline",
+                                               "status":  "Completed",
+                                               "date":  "Oct 10, 2026"
+                                           },
+                                           {
+                                               "step":  5,
+                                               "title":  "Final Offer Extended",
+                                               "mode":  "Official Rollout",
+                                               "status":  "Completed",
+                                               "date":  "Oct 11, 2026"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-3",
+                           "name":  "Aarav Sengupta",
+                           "initials":  "AS",
+                           "role":  "Graduate Engineer Trainee (GET) - Software",
+                           "tier":  "Fresher",
+                           "stage":  "Step 4: Selected / Offer Rolled Out",
+                           "current_round_number":  1,
+                           "total_rounds":  4,
+                           "status":  "Selected",
+                           "score":  9.1,
+                           "applied":  "8 days ago",
+                           "email":  "aarav.sengupta@example.com",
+                           "phone":  "+91 98450 11234",
+                           "location":  "Hyderabad, India",
+                           "experience":  "0.5 Yr Exp (College Grad)",
+                           "notice":  "Immediate",
+                           "source":  "Campus Hiring Drive",
+                           "tracking_code":  "TT-2026-3390",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "CV \u0026 Academic Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Not Shortlisted",
+                                               "date":  "Oct 5, 2026"
+                                           }
+                                       ],
+                           "scores":  {
+                                          "cv_screening":  8.8,
+                                          "tech_assessment":  9.4,
+                                          "tech_interview":  9.2,
+                                          "hr_round":  9,
+                                          "overall":  9.1
+                                      },
+                           "history":  [
+                                           {
+                                               "date":  "2026-10-12 18:35",
+                                               "status":  "Selected",
+                                               "note":  "",
+                                               "stage":  "Step 4: Selected / Offer Rolled Out",
+                                               "actionBy":  "Priya Kulkarni (Final HR Interviewer)"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-4",
+                           "name":  "Pooja Iyer",
+                           "initials":  "PI",
+                           "role":  "Product Designer (UI/UX \u0026 Design Systems)",
+                           "tier":  "Mid-Level",
+                           "stage":  "Round 3: In-Office Design Crit \u0026 Discussion",
+                           "current_round_number":  3,
+                           "total_rounds":  4,
+                           "status":  "In Progress",
+                           "score":  8.5,
+                           "applied":  "4 days ago",
+                           "email":  "pooja.iyer@example.com",
+                           "phone":  "+91 98234 56789",
+                           "location":  "Mumbai, India",
+                           "experience":  "3.5 Yrs Exp",
+                           "notice":  "15 Days Notice",
+                           "source":  "Company Careers Portal",
+                           "tracking_code":  "TT-2026-7741",
+                           "offline_pass":  {
+                                                "scheduled":  true,
+                                                "is_offline":  true,
+                                                "round_title":  "Round 3: In-Office Design Critique \u0026 Workshop",
+                                                "date_time":  "Today (Oct 12) at 02:00 PM IST",
+                                                "venue":  "TalentTrack Mumbai Design Studio, Bandra Kurla Complex (BKC), Floor 6",
+                                                "address":  "Platina Tower, G Block BKC, Bandra East, Mumbai, Maharashtra 400051",
+                                                "interviewers":  [
+                                                                     "Sidharth Kulkarni (Design Director)"
+                                                                 ],
+                                                "instructions":  [
+                                                                     "Report at 6th Floor Reception.",
+                                                                     "Present your prototype designs directly on the collaborative display studio.",
+                                                                     "Visitor badge will be issued at Ground Floor lobby."
+                                                                 ],
+                                                "coordinator":  "Sneha Kulkarni",
+                                                "security_pass_code":  "VISITOR-TT-MUM-7741"
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "Portfolio \u0026 Resume Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 8, 2026"
+                                           },
+                                           {
+                                               "step":  2,
+                                               "title":  "Virtual Design Challenge",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 10, 2026"
+                                           },
+                                           {
+                                               "step":  3,
+                                               "title":  "In-Office Design Crit \u0026 Offline Discussion",
+                                               "mode":  "Offline (Come to Office)",
+                                               "status":  "Scheduled Today",
+                                               "date":  "Oct 12, 2026"
+                                           },
+                                           {
+                                               "step":  4,
+                                               "title":  "Final Leadership \u0026 Offer",
+                                               "mode":  "In-Office",
+                                               "status":  "Upcoming",
+                                               "date":  "Oct 15, 2026"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-5",
+                           "name":  "Ananya Deshmukh",
+                           "initials":  "AD",
+                           "role":  "Staff Machine Learning Engineer",
+                           "tier":  "Senior-Level",
+                           "stage":  "Final Executive Review",
+                           "current_round_number":  4,
+                           "total_rounds":  4,
+                           "status":  "Selected",
+                           "score":  9.6,
+                           "applied":  "14 days ago",
+                           "email":  "ananya.deshmukh@example.com",
+                           "phone":  "+91 99887 65432",
+                           "location":  "Bengaluru, India",
+                           "experience":  "10 Yrs Exp",
+                           "notice":  "Serving Notice",
+                           "source":  "Company Careers Portal",
+                           "tracking_code":  "TT-2026-9901",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "CV \u0026 Research Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Sep 28, 2026"
+                                           },
+                                           {
+                                               "step":  2,
+                                               "title":  "Virtual ML Architecture Round",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 2, 2026"
+                                           },
+                                           {
+                                               "step":  3,
+                                               "title":  "In-Office AI Model Optimization Lab Session",
+                                               "mode":  "Offline",
+                                               "status":  "Completed",
+                                               "date":  "Oct 6, 2026"
+                                           },
+                                           {
+                                               "step":  4,
+                                               "title":  "In-Office Founder \u0026 Executive Discussion",
+                                               "mode":  "Offline",
+                                               "status":  "Completed",
+                                               "date":  "Oct 11, 2026"
+                                           }
+                                       ]
+                       },
+                       {
+                           "id":  "cand-6",
+                           "name":  "Vikramaditya Rao",
+                           "initials":  "VR",
+                           "role":  "Associate Frontend Developer",
+                           "tier":  "Fresher",
+                           "stage":  "Frontend Machine Coding Task",
+                           "current_round_number":  2,
+                           "total_rounds":  4,
+                           "status":  "Rejected",
+                           "score":  6.0,
+                           "applied":  "6 days ago",
+                           "email":  "vikram.rao@example.com",
+                           "phone":  "+91 97654 32100",
+                           "location":  "Chennai, India",
+                           "experience":  "1 Yr Exp",
+                           "notice":  "Immediate",
+                           "source":  "Campus Alumni Drive",
+                           "tracking_code":  "TT-2026-6612",
+                           "offline_pass":  {
+                                                "scheduled":  false,
+                                                "is_offline":  false
+                                            },
+                           "roadmap":  [
+                                           {
+                                               "step":  1,
+                                               "title":  "Portfolio Shortlisting",
+                                               "mode":  "Online",
+                                               "status":  "Completed",
+                                               "date":  "Oct 6, 2026"
+                                           },
+                                           {
+                                               "step":  2,
+                                               "title":  "Frontend Machine Coding Task",
+                                               "mode":  "Online",
+                                               "status":  "Did Not Clear",
+                                               "date":  "Oct 9, 2026"
+                                           }
+                                       ]
+                       }
+                   ],
+    "interviews":  [
+                       {
+                           "id":  "int-1",
+                           "candidate_name":  "Rahul Sharma",
+                           "role":  "Lead Frontend Engineer",
+                           "tier":  "Senior-Level",
+                           "stage":  "Round 4: In-Office Architecture Deep-Dive \u0026 Whiteboard Session",
+                           "mode":  "Offline (In-Office Campus Visit)",
+                           "venue":  "TalentTrack Bengaluru HQ, Tower B, Room 4B",
+                           "time":  "Oct 14, 2026 • 11:30 AM – 01:00 PM",
+                           "interviewers":  [
+                                                "Ananya Roy",
+                                                "Vikram Malhotra"
+                                            ],
+                           "status":  "Scheduled (Come to Office)"
+                       },
+                       {
+                           "id":  "int-2",
+                           "candidate_name":  "Pooja Iyer",
+                           "role":  "Product Designer (UI/UX \u0026 Design Systems)",
+                           "tier":  "Mid-Level",
+                           "stage":  "Round 3: In-Office Design Crit \u0026 Offline Discussion",
+                           "mode":  "Offline (In-Office Campus Visit)",
+                           "venue":  "TalentTrack Mumbai Design Studio, BKC, Floor 6",
+                           "time":  "Today (Oct 12) • 02:00 PM – 03:30 PM",
+                           "interviewers":  [
+                                                "Sidharth Kulkarni"
+                                            ],
+                           "status":  "Scheduled (Come to Office)"
+                       },
+                       {
+                           "id":  "int-3",
+                           "candidate_name":  "Arjun Nair",
+                           "role":  "Principal DevOps Architect",
+                           "tier":  "Senior-Level",
+                           "stage":  "Round 3: In-Office Disaster Recovery Simulation",
+                           "mode":  "Offline (In-Office Campus Visit)",
+                           "venue":  "TalentTrack Bengaluru HQ, Server Room Lab 2",
+                           "time":  "Today (Oct 12) • 04:30 PM – 06:00 PM",
+                           "interviewers":  [
+                                                "Rajesh Varma"
+                                            ],
+                           "status":  "Scheduled (Come to Office)"
+                       }
+                   ],
+    "feedbacks":  [
+                      {
+                          "id":  "fb-1",
+                          "candidate_id":  "cand-1",
+                          "candidate_name":  "Rahul Sharma",
+                          "stage":  "Technical Round 2: System \u0026 UI Architecture",
+                          "evaluator":  "Ananya Roy (Principal Architect)",
+                          "rating":  9.2,
+                          "decision":  "Pass",
+                          "date":  "2026-10-12",
+                          "quote":  "Designed a resilient distributed UI microfrontend layout with zero bundle bleed. Strong clarity on offline capabilities. Recommended to invite for In-Office Architecture Whiteboard discussion round at Bengaluru HQ.",
+                          "tags":  [
+                                       "Microfrontends",
+                                       "State Architecture",
+                                       "Design Systems",
+                                       "Resiliency"
+                                   ]
+                      }
+                  ],
+    "applications":  [
+                         {
+                             "id":  "TT-2026-5348",
+                             "candidate_id":  "cand-ad3caaa4",
+                             "candidate_name":  "Rahul Sharma",
+                             "role":  "DevOps \u0026 Cloud Engineer",
+                             "tier":  "Fresher",
+                             "email":  "rahul@talenttrack.com",
+                             "status":  "CV Under Review (Step 1)",
+                             "submitted_at":  "2026-10-12T13:19:54Z"
+                         },
+                         {
+                             "id":  "TT-2026-2621",
+                             "candidate_id":  "cand-76796b57",
+                             "candidate_name":  "sdfddf",
+                             "role":  "DevOps \u0026 Cloud Engineer",
+                             "tier":  "Fresher",
+                             "email":  "abc@gmail.com",
+                             "status":  "CV Under Review (Step 1)",
+                             "submitted_at":  "2026-10-12T13:06:33Z"
+                         },
+                         {
+                             "id":  "TT-2026-5178",
+                             "candidate_id":  "cand-6140a5e9",
+                             "candidate_name":  "Snehal Patil",
+                             "role":  "Graduate Engineer Trainee (GET) - Software",
+                             "tier":  "Fresher",
+                             "email":  "snehal.patil@engineering.edu",
+                             "status":  "CV Under Review (Step 1)",
+                             "submitted_at":  "2026-10-12T11:18:34Z"
+                         },
+                         {
+                             "id":  "TT-2026-8812",
+                             "candidate_name":  "Rahul Sharma",
+                             "role":  "Lead Frontend Engineer",
+                             "tier":  "Senior-Level",
+                             "status":  "In Progress (In-Office Round Scheduled)",
+                             "submitted_at":  "2026-10-09T09:30:00Z"
+                         }
+                     ]
+}

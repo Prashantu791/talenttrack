@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="c2Gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0D0"/>
+      <stop offset="35%" stop-color="#E2B155"/>
+      <stop offset="70%" stop-color="#C8963E"/>
+      <stop offset="100%" stop-color="#805416"/>
+    </linearGradient>
+    <linearGradient id="c2Cyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <radialGradient id="c2Bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0F3336"/>
+      <stop offset="100%" stop-color="#051415"/>
+    </radialGradient>
+    <filter id="c2Shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle Disc -->
+  <circle cx="50" cy="50" r="44" fill="url(#c2Bg)" stroke="rgba(200, 150, 62, 0.25)" stroke-width="2"/>
+
+  <!-- Cyan Loop Ribbon Path -->
+  <path d="M28,68 C16,48 26,26 44,26 C56,26 62,34 62,42 C62,56 42,58 36,70 C34,74 36,78 42,78 C54,78 68,64 74,52" 
+        stroke="url(#c2Cyan)" 
+        stroke-width="7" 
+        stroke-linecap="round" 
+        fill="none" 
+        opacity="0.85"/>
+
+  <!-- Golden Interlocking Primary TT Ribbon Path -->
+  <path d="M22,34 L56,34 M39,34 L39,72 M44,34 L78,34 M61,34 L61,72" 
+        stroke="url(#c2Gold)" 
+        stroke-width="6.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        filter="url(#c2Shadow)"/>
+
+  <!-- Accent Intersection Nodes -->
+  <circle cx="39" cy="34" r="3.5" fill="#FFF0D0"/>
+  <circle cx="61" cy="34" r="3.5" fill="#FFF0D0"/>
+  <circle cx="50" cy="53" r="2.5" fill="#38BDF8"/>
+</svg>

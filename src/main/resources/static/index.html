@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentTrack - Careers & Hiring Platform</title>
+  <meta name="description" content="TalentTrack Careers Portal - Explore openings, apply, and track candidate interview stages with round-by-round scoring.">
+  <link rel="icon" type="image/svg+xml" href="assets/talenttrack-logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =======================================================================
+       MAIN APP HEADER (No external switcher buttons on candidate view)
+       ======================================================================= -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="brand-logo" onclick="window.handleBrandClick()" title="TalentTrack Home">
+          <div class="brand-icon">
+            <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Accent Gradient: #5089BD -->
+    <linearGradient id="freshIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6FA3D3"/>
+      <stop offset="40%" stop-color="#5089BD"/>
+      <stop offset="80%" stop-color="#3D6E9B"/>
+      <stop offset="100%" stop-color="#2D5377"/>
+    </linearGradient>
+
+    <!-- Powder Blue / Platinum Facet Gradient: #DCEAF7 -->
+    <linearGradient id="freshChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="35%" stop-color="#DCEAF7"/>
+      <stop offset="70%" stop-color="#BCD5EB"/>
+      <stop offset="100%" stop-color="#8EADC9"/>
+    </linearGradient>
+
+    <!-- Deep Headings Shadow Bevel: #1E3553 -->
+    <linearGradient id="freshIndigoDark" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D5377"/>
+      <stop offset="50%" stop-color="#1E3553"/>
+      <stop offset="100%" stop-color="#122338"/>
+    </linearGradient>
+
+    <!-- Fresh Mint Emerald Velocity Runway Gradient -->
+    <linearGradient id="freshMintTrack" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Accent Cyan Gradient -->
+    <linearGradient id="freshCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3D6E9B"/>
+      <stop offset="50%" stop-color="#5089BD"/>
+      <stop offset="100%" stop-color="#DCEAF7"/>
+    </linearGradient>
+
+    <!-- Medallion Background: #1E3553 Deep Navy Dial -->
+    <radialGradient id="freshDialBg" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#3B577A"/>
+      <stop offset="45%" stop-color="#1E3553"/>
+      <stop offset="90%" stop-color="#122338"/>
+      <stop offset="100%" stop-color="#0B1624"/>
+    </radialGradient>
+
+    <filter id="freshTShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4.5" flood-color="#1E3553" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#5089BD" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- 1. BASE OBSIDIAN SAPPHIRE DISC WITH CHROME & INDIGO RIMS -->
+  <circle cx="50" cy="50" r="47" fill="url(#freshChrome)" stroke="#5089BD" stroke-width="1.8" filter="url(#freshTShadow)"/>
+  <circle cx="50" cy="50" r="44.5" fill="none" stroke="#1E3553" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="43.2" fill="none" stroke="url(#freshCyan)" stroke-width="0.8" opacity="0.85"/>
+  <circle cx="50" cy="50" r="42.5" fill="url(#freshDialBg)"/>
+
+  <!-- Subtle Glaze Arc Reflection -->
+  <path d="M8,50 A42,42 0 0,1 92,50 Z" fill="url(#freshChrome)" opacity="0.08"/>
+
+  <!-- 2. SCULPTURAL 3D BEVELED MONOLITHIC 'T' IN FRESH COLORS (ZERO STARS) -->
+  <g filter="url(#freshTShadow)">
+    <!-- Base Shadow Extrusion -->
+    <path d="M19,26 L81,26 L74,38 L58,38 L58,74 L42,74 L42,38 L26,38 Z" fill="#030712"/>
+
+    <!-- Crossbar Left Chrome Chamfer -->
+    <polygon points="19,26 50,26 44,32 24,32" fill="url(#freshChrome)"/>
+    <polygon points="19,26 24,32 26,38 19,26" fill="#CBD5E1"/>
+
+    <!-- Crossbar Right Shaded Bevel -->
+    <polygon points="50,26 81,26 76,32 44,32" fill="url(#freshIndigoDark)"/>
+    <polygon points="81,26 76,32 74,38 81,26" fill="#1E1B4B"/>
+
+    <!-- Crossbar Front Face (Vibrant Electric Indigo) -->
+    <polygon points="24,32 76,32 72,37 28,37" fill="url(#freshIndigo)"/>
+
+    <!-- Crossbar Underside Chamfers -->
+    <polygon points="26,37 42,37 40,40 28,40" fill="#312E81"/>
+    <polygon points="58,37 74,37 72,40 60,40" fill="#1E1B4B"/>
+
+    <!-- Vertical Stem Left Chrome Bevel -->
+    <polygon points="42,37 50,37 50,71 42,67" fill="url(#freshChrome)"/>
+
+    <!-- Vertical Stem Right Indigo Bevel -->
+    <polygon points="50,37 58,37 58,67 50,71" fill="url(#freshIndigoDark)"/>
+
+    <!-- Vertical Stem Front Face (Electric Indigo Core) -->
+    <polygon points="46,37 54,37 54,68 46,68" fill="url(#freshIndigo)"/>
+
+    <!-- Sculptural Beveled Foot -->
+    <polygon points="42,67 50,71 58,67 50,75" fill="url(#freshIndigoDark)"/>
+
+    <!-- Central Precision Runway Channel (Fresh Mint Emerald) -->
+    <line x1="50" y1="36" x2="50" y2="67" stroke="#030712" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="50" y1="36" x2="50" y2="67" stroke="url(#freshMintTrack)" stroke-width="1.6" stroke-linecap="round"/>
+
+    <!-- 3 Milestone Progression Nodes (Screening, Interview, Offer) -->
+    <circle cx="50" cy="62" r="2" fill="#10B981"/>
+    <circle cx="50" cy="62" r="0.9" fill="#FFFFFF"/>
+    <circle cx="50" cy="49" r="2" fill="#06B6D4"/>
+    <circle cx="50" cy="49" r="0.9" fill="#FFFFFF"/>
+    <circle cx="50" cy="38" r="2.2" fill="#FFFFFF"/>
+    <circle cx="50" cy="38" r="1.1" fill="#4F46E5"/>
+  </g>
+
+  <!-- Precision Dial Accents -->
+  <line x1="50" y1="7" x2="50" y2="10" stroke="#06B6D4" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="50" y1="90" x2="50" y2="93" stroke="#4F46E5" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="7" y1="50" x2="10" y2="50" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="90" y1="50" x2="93" y2="50" stroke="#38BDF8" stroke-width="1.4" stroke-linecap="round"/>
+</svg>
+          </div>
+          <div class="brand-wordmark">
+            Talent<span>Track</span>
+          </div>
+        </div>
+
+        <!-- Role Nav Tabs -->
+        <nav class="main-nav" id="headerNav">
+          <!-- Populated dynamically based strictly on user role -->
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <!-- Guest State: Log In Button -->
+        <div id="guestAuthGroup" class="auth-group">
+          <button class="btn-login" id="openLoginBtn" onclick="window.openLoginModal()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Log In</span>
+          </button>
+        </div>
+
+        <!-- Authenticated State: Round Initials Avatar with Animation & Log Out Button -->
+        <div id="userAuthGroup" class="auth-group hidden">
+          <div class="user-badge-wrap">
+            <div class="user-avatar-container" id="userAvatarContainer" title="Account Profile">
+              <div class="user-avatar-round" id="headerUserAvatar"></div>
+              <span class="avatar-online-dot"></span>
+              <!-- Profile Popover on hover/focus -->
+              <div class="user-profile-popover" id="userProfilePopover">
+                <div class="popover-avatar-preview" id="popoverAvatarLetters"></div>
+                <div class="popover-details">
+                  <div class="popover-name" id="headerUserName"></div>
+                  <div class="popover-role" id="headerUserRole"></div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-logout" id="logoutBtn" onclick="window.handleLogout()" title="Log Out">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Log Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       MAIN CONTAINER
+       ======================================================================= -->
+  <main class="main-layout">
+
+    <!-- ===================================================================
+         VIEW 1: RECRUITING TEAM WORKSPACE (HR Screener / Tech Interviewer / Final HR)
+         Visible ONLY when Recruiting Team member is logged in!
+         =================================================================== -->
+    <section id="recruiterWorkspaceView" class="view-panel hidden">
+      <div class="panel-header-compact">
+        <div>
+          <span class="role-kicker-pill" id="recruiterRolePill">Tech Round Interviewer Workspace</span>
+          <h1 class="panel-headline" id="recruiterWorkspaceTitle">Candidate Evaluation & Scoring</h1>
+          <p class="panel-subtext" id="recruiterWorkspaceDesc">
+            Evaluate assigned candidates, review round scores out of 10, and advance shortlisted candidates.
+          </p>
+        </div>
+
+        <div class="recruiter-quick-actions">
+          <button class="btn-announce" id="btnAnnounceOpening" onclick="window.openAnnounceOpeningModal()" style="display: none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 5v14M5 12h14"/></svg>
+            <span>Announce New Opening</span>
+          </button>
+          <button class="btn-outline-gold" id="btnRecruiterToggleOpenings" onclick="window.toggleRecruiterView('openings')">
+            Browse All Openings
+          </button>
+          <button class="btn-secondary" id="btnRecruiterRefresh" onclick="window.loadCandidates()">
+            Refresh Candidates
+          </button>
+        </div>
+      </div>
+
+      <!-- Candidate Evaluation Grid (with Round Scores Out of 10) -->
+      <div class="recruiter-candidates-grid" id="recruiterCandidatesContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 2: CANDIDATE DASHBOARD (Isolated for Candidates, NO HR/Tech Buttons)
+         =================================================================== -->
+    <section id="candidatePortalView" class="view-panel hidden">
+      <div class="panel-header-compact">
+        <div>
+          <span class="role-kicker-pill" style="color: var(--color-emerald); background: var(--color-emerald-subtle);">
+            Candidate Dashboard
+          </span>
+          <h1 class="panel-headline">My Application Status</h1>
+          <p class="panel-subtext">
+            Track your multi-round hiring progress and verified evaluation scores.
+          </p>
+        </div>
+
+        <div>
+          <button class="btn-outline-gold" onclick="window.showCandidateTab('openings')">
+            Explore More Openings &rarr;
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Demo Stage Switcher Bar (Test Selected, In Evaluation, and Rejected Views) -->
+      <div class="demo-candidate-switch-strip" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 10px 16px; border-radius: var(--radius-md); box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #475569; font-weight: 700;">
+          <span>🔍 Quick State Preview:</span>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="btn-secondary" style="font-size: 11.5px; padding: 5px 12px; background: #DCFCE7; color: #065F46; border: 1px solid #86EFAC; font-weight: 700;" onclick="window.setCandidateSimStage(4)">
+            🎉 1. Selected View (Congratulations &amp; Offer Letter)
+          </button>
+          <button type="button" class="btn-secondary" style="font-size: 11.5px; padding: 5px 12px; background: #EFF6FF; color: #1E40AF; border: 1px solid #93C5FD; font-weight: 700;" onclick="window.setCandidateSimStage(2)">
+            ⏳ 2. In Evaluation View (Technical Round)
+          </button>
+          <button type="button" class="btn-secondary" style="font-size: 11.5px; padding: 5px 12px; background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; font-weight: 700;" onclick="window.setCandidateSimStage('rejected')">
+            📋 3. Not Shortlisted View (Regret Result &amp; Feedback)
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Application Tracker Card & Round Scoreboard -->
+      <div class="card-panel candidate-tracker-card" id="candidateActiveAppCard">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         VIEW 3: ALL COMPANY OPENINGS (Clean, Concise, No Large Sentences)
+         Default view for Guests, and accessible via tab for Candidate/Recruiter
+         =================================================================== -->
+    <section id="openingsView" class="view-panel">
+      <!-- Short, Punchy Hero -->
+      <div class="hero-compact anim-slide-up">
+        <div class="hero-compact-content">
+          <span class="tag-badge">TalentTrack Careers</span>
+          <h1 class="hero-headline">Job Openings</h1>
+          <p class="hero-subline">Explore open roles & track your hiring stages.</p>
+          <div class="hero-metrics-row">
+            <span class="metric-pill"><strong id="metricTotalOpenings">11</strong> Roles Open</span>
+            <span class="metric-pill">Fresher & Senior</span>
+            <span class="metric-pill">Bengaluru • Pune • Remote</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long Horizontal Search Bar & Modern Role Tier Experience Strip -->
+      <div class="openings-filter-section anim-slide-up">
+        <!-- 1. Full-Width Long Horizontal Search Bar -->
+        <div class="horizontal-search-bar-wrap">
+          <div class="horizontal-search-bar">
+            <span class="search-lead-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5089BD" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              id="jobSearchInput" 
+              class="search-input-field-long" 
+              placeholder="Search all open positions by job role, key skills (e.g. React, Python, Go, SQL), or team..."
+              autocomplete="off"
+            >
+            <button class="search-clear-btn" id="searchClearBtn" onclick="window.clearSearch()" title="Clear search query">&times;</button>
+          </div>
+        </div>
+
+        <!-- 2. Re-formatted Role Tiers (Modern Card Tiles Format) -->
+        <div class="tier-segmented-row">
+          <button class="tier-tab-btn active" id="tabTierAll" onclick="window.filterByTier('all')">
+            <div class="tier-btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="tier-btn-text">
+              <span class="tier-btn-title">All Openings</span>
+              <span class="tier-btn-desc">All experience levels</span>
+            </div>
+            <span class="tier-chip" id="countAll">11</span>
+          </button>
+
+          <button class="tier-tab-btn" id="tabTierFresher" onclick="window.filterByTier('Fresher')">
+            <div class="tier-btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v8"></path>
+                <path d="m4.93 10.93 1.41 1.41"></path>
+                <path d="M2 18h2"></path>
+                <path d="M20 18h2"></path>
+                <path d="m19.07 10.93-1.41 1.41"></path>
+                <path d="M22 22H2"></path>
+                <path d="m8 22 4-10 4 10"></path>
+              </svg>
+            </div>
+            <div class="tier-btn-text">
+              <span class="tier-btn-title">Fresher Roles</span>
+              <span class="tier-btn-desc">0 – 2 Years Exp</span>
+            </div>
+            <span class="tier-chip" id="countFresher">4</span>
+          </button>
+
+          <button class="tier-tab-btn" id="tabTierMid" onclick="window.filterByTier('Mid-Level')">
+            <div class="tier-btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="tier-btn-text">
+              <span class="tier-btn-title">Mid-Level</span>
+              <span class="tier-btn-desc">2 – 5 Years Exp</span>
+            </div>
+            <span class="tier-chip" id="countMid">3</span>
+          </button>
+
+          <button class="tier-tab-btn" id="tabTierSenior" onclick="window.filterByTier('Senior-Level')">
+            <div class="tier-btn-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+              </svg>
+            </div>
+            <div class="tier-btn-text">
+              <span class="tier-btn-title">Senior-Level</span>
+              <span class="tier-btn-desc">6+ Years Exp</span>
+            </div>
+            <span class="tier-chip" id="countSenior">4</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Openings Grid -->
+      <div class="job-cards-grid" id="openingsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       LOGIN MODAL (Tabbed: Candidate Sign In vs Company Staff Sign In)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="loginModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 490px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="brand-icon" style="width: 34px; height: 34px;">
+            <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none">
+              <!-- Obsidian Sapphire Disc with Titanium Rim -->
+              <circle cx="50" cy="50" r="47" fill="url(#freshChrome)" stroke="#4F46E5" stroke-width="1.8"/>
+              <circle cx="50" cy="50" r="44.5" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+              <circle cx="50" cy="50" r="43.2" fill="none" stroke="url(#freshCyan)" stroke-width="0.8" opacity="0.85"/>
+              <circle cx="50" cy="50" r="42.5" fill="url(#freshDialBg)"/>
+              <g>
+                <polygon points="19,26 50,26 44,32 24,32" fill="url(#freshChrome)"/>
+                <polygon points="50,26 81,26 76,32 44,32" fill="url(#freshIndigoDark)"/>
+                <polygon points="24,32 76,32 72,37 28,37" fill="url(#freshIndigo)"/>
+                <polygon points="42,37 50,37 50,71 42,67" fill="url(#freshChrome)"/>
+                <polygon points="50,37 58,37 58,67 50,71" fill="url(#freshIndigoDark)"/>
+                <polygon points="46,37 54,37 54,68 46,68" fill="url(#freshIndigo)"/>
+                <line x1="50" y1="36" x2="50" y2="67" stroke="url(#freshMintTrack)" stroke-width="1.6" stroke-linecap="round"/>
+                <circle cx="50" cy="62" r="2" fill="#10B981"/>
+                <circle cx="50" cy="49" r="2" fill="#06B6D4"/>
+                <circle cx="50" cy="38" r="2.2" fill="#FFFFFF"/>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <h3 class="modal-title">Sign In to TalentTrack</h3>
+            <p class="modal-sub">Select your account type</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeLoginModal()">&times;</button>
+      </div>
+
+      <!-- Role Mode Tabs -->
+      <div class="modal-role-tabs">
+        <button class="modal-role-tab active" id="tabLoginCandidate" onclick="window.switchLoginTab('candidate')">
+          🧑‍💻 Candidate Login
+        </button>
+        <button class="modal-role-tab" id="tabLoginStaff" onclick="window.switchLoginTab('staff')">
+          🏢 Recruitment / Staff Login
+        </button>
+      </div>
+
+      <!-- Candidate Login Pane (Default Active) -->
+      <div id="loginCandidatePane" class="login-pane">
+        <div class="login-notice-info">
+          <span class="notice-icon">ℹ️</span>
+          <div>
+            <strong>Application Required:</strong>
+            Only candidates who have applied for an open position can sign in to view their round evaluations and roadmap.
+          </div>
+        </div>
+
+        <!-- Dynamic Alert Container when candidate has not applied -->
+        <div id="candidateLoginError" class="login-error-box hidden" role="alert"></div>
+
+        <form onsubmit="event.preventDefault(); window.submitCandidateLogin();">
+          <div class="form-group">
+            <label class="form-label">Candidate Email</label>
+            <input type="email" id="candidateEmailInput" class="form-input" placeholder="Enter your registered candidate email" value="" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="candidatePasswordInput" class="form-input" placeholder="Enter your candidate password" value="" required>
+              <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('candidatePasswordInput', this)" aria-label="Show password" title="Show password">
+                <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg class="eye-icon-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                  <line x1="2" y1="2" x2="22" y2="22"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" id="candidateSignInBtn" style="width: 100%; justify-content: center; padding: 10px; margin-top: 6px;">
+            Sign In as Candidate
+          </button>
+        </form>
+      </div>
+
+      <!-- Company Staff Login Pane (Role Dropdown Pattern) -->
+      <div id="loginStaffPane" class="login-pane hidden">
+        <form onsubmit="event.preventDefault(); window.submitStaffLogin();">
+          <div class="form-group">
+            <label class="form-label">Select Staff Role</label>
+            <select id="staffRoleSelect" class="form-select">
+              <option value="hr_screener">👩‍💼 HR Recruiter (Neha Gupta)</option>
+              <option value="tech_interviewer">👨‍💻 Tech Round Interviewer (Vikram Malhotra)</option>
+              <option value="hr_interviewer">👩‍⚖️ Final HR Interviewer (Priya Kulkarni)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="staffPasswordInput" class="form-input" placeholder="Enter staff password" value="TalentTrack2026!" required>
+              <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('staffPasswordInput', this)" aria-label="Show password" title="Show password">
+                <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg class="eye-icon-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                  <line x1="2" y1="2" x2="22" y2="22"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 10px; margin-top: 6px;">
+            Sign In to Staff Workspace
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       GUEST APPLY BLOCK POP-UP (Login Required to Apply)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="loginRequiredModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 440px; text-align: center; padding: 26px 22px;">
+      <div style="font-size: 34px; margin-bottom: 12px;">🔒</div>
+      <h3 class="modal-title" style="margin-bottom: 6px;">Candidate Login Required</h3>
+      <p class="modal-sub" style="margin-bottom: 20px;">
+        To apply for this role, you must be logged in as a candidate. Please log in to submit your application and track your hiring stages.
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="btn-secondary" onclick="window.closeLoginRequiredModal()">Cancel</button>
+        <button class="btn-primary" onclick="window.closeLoginRequiredModal(); window.openLoginModal('candidate');">
+          Log In as Candidate
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       CANDIDATE / EMPLOYEE APPLY FORM MODAL (With Comprehensive Details & Referral)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="candidateApplyModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 560px; max-height: 90vh; overflow-y: auto;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Apply for Position</h3>
+          <p class="modal-sub" id="applyModalRoleTitle">Role Requisition</p>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeApplyModal()">&times;</button>
+      </div>
+
+      <form id="candidateApplyForm" onsubmit="event.preventDefault(); window.submitCandidateApplication();">
+        <input type="hidden" id="applyJobId">
+        <input type="hidden" id="applyJobTitle">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="applyName" class="form-input" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" id="applyPhone" class="form-input" placeholder="e.g. +91 98201 44521" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="applyEmail" class="form-input" placeholder="Enter your email address" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Create Login Password *</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="applyPassword" class="form-input" placeholder="Create candidate password" value="Candidate@123" required>
+              <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('applyPassword', this)" aria-label="Show password" title="Show password">
+                <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg class="eye-icon-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                  <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                  <line x1="2" y1="2" x2="22" y2="22"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p style="font-size: 11px; color: #64748B; margin-top: -6px; margin-bottom: 12px;">
+          🔒 Remember this password. You will use your email &amp; password to sign in and track your application status.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Current Address / City *</label>
+          <input type="text" id="applyAddress" class="form-input" placeholder="e.g. Koramangala, Bengaluru, Karnataka" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Key Experience & Skills *</label>
+          <input type="text" id="applySkills" class="form-input" placeholder="e.g. 3 Yrs Exp • React, TypeScript, Node.js" required>
+        </div>
+
+        <!-- CV / Resume Attachment with Attachment Symbol (Strictly Mandatory) -->
+        <div class="form-group">
+          <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Attach CV / Resume *</span>
+            <span style="font-size: 11px; color: #DC2626; font-weight: 700;">Mandatory Attachment</span>
+          </label>
+          <div class="attachment-input-bar" id="resumeAttachmentBar" onclick="document.getElementById('applyResumeFile').click();" title="Click attachment symbol to open file manager">
+            <input 
+              type="file" 
+              id="applyResumeFile" 
+              accept=".pdf,.doc,.docx" 
+              style="display: none;" 
+              onchange="window.handleResumeFileSelect(event)"
+            >
+            <button 
+              type="button" 
+              class="attachment-symbol-btn" 
+              id="btnAttachmentSymbol"
+              onclick="event.stopPropagation(); document.getElementById('applyResumeFile').click();" 
+              title="Click attachment symbol to open file manager"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l7.88-7.88"></path>
+              </svg>
+            </button>
+            <div class="attachment-text-area">
+              <span class="attachment-filename" id="displayResumeFileName">No file chosen (Attachment Required)</span>
+              <span class="attachment-subtext" id="displayResumeFileMeta">Click attachment symbol or this bar to select your CV / Resume (.pdf, .doc, .docx)</span>
+            </div>
+            <button 
+              type="button" 
+              class="btn-attach-action" 
+              onclick="event.stopPropagation(); document.getElementById('applyResumeFile').click();"
+              title="Click attachment symbol to open file manager"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l7.88-7.88"></path>
+              </svg>
+              <span>Attach</span>
+            </button>
+          </div>
+          <input type="hidden" id="applyResumeAttachedName" value="">
+        </div>
+
+        <!-- Employee Referral Section (Only Referral Employee Name) -->
+        <div class="form-referral-box">
+          <div class="form-referral-title">
+            <span>Employee Referral (Optional)</span>
+            <small style="color: var(--color-text-muted); font-weight: 400;">If referred by an existing team member</small>
+          </div>
+          <div style="margin-top: 8px;">
+            <label class="form-label" style="font-size: 11px;">Referred by (Employee Name)</label>
+            <input type="text" id="applyReferralName" class="form-input" placeholder="e.g. Rajesh Kumar">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn-secondary" onclick="window.closeApplyModal()">Cancel</button>
+          <button type="submit" class="btn-primary" style="padding: 10px 22px;">Submit Application & Track</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       TECH SHORTLIST CONFIRMATION MODAL
+       ======================================================================= -->
+  <div class="modal-backdrop" id="shortlistConfirmModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 450px; text-align: center; padding: 26px 22px;">
+      <div style="font-size: 34px; margin-bottom: 10px;">⭐</div>
+      <h3 class="modal-title" style="margin-bottom: 6px;">Candidate Shortlisted!</h3>
+      <p class="modal-sub" id="shortlistConfirmMessage" style="margin-bottom: 20px;">
+        Candidate has cleared the Technical Round and is advanced to the Final HR Round.
+      </p>
+      <button class="btn-primary" style="margin: 0 auto;" onclick="window.closeShortlistConfirmModal()">
+        Done
+      </button>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       OFFICIAL CANDIDATE OFFER LETTER MODAL (When Candidate is Selected)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="offerLetterModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 620px; padding: 28px;">
+      <div class="modal-header" style="border-bottom: 2px solid #86EFAC; padding-bottom: 14px; margin-bottom: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 28px;">📜</div>
+          <div>
+            <h3 class="modal-title" style="color: #065F46; font-size: 18px;">TalentTrack Formal Offer of Employment</h3>
+            <p class="modal-sub" style="color: #047857;">Official Hiring Confirmation & Employment Requisition</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeOfferLetterModal()">&times;</button>
+      </div>
+
+      <div id="offerLetterContent" style="font-size: 13.5px; line-height: 1.65; color: #1E3553;">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 14px; border-top: 1px solid #E5E7EB;">
+        <button class="btn-secondary" onclick="window.closeOfferLetterModal()">Close</button>
+        <button class="btn-primary" style="background: linear-gradient(135deg, #059669 0%, #10B981 100%);" onclick="showToast('📥 Downloading Official Offer Letter (PDF)...'); setTimeout(() => window.closeOfferLetterModal(), 800);">
+          📥 Download Offer Letter (PDF)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       OFFICIAL CANDIDATE EVALUATION & FEEDBACK MODAL (When Evaluation Concluded / Not Shortlisted)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="evaluationFeedbackModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 620px; padding: 28px;">
+      <div class="modal-header" style="border-bottom: 2px solid #FCA5A5; padding-bottom: 14px; margin-bottom: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 28px;">📋</div>
+          <div>
+            <h3 class="modal-title" style="color: #991B1B; font-size: 18px;">TalentTrack Candidate Evaluation Summary</h3>
+            <p class="modal-sub" style="color: #7F1D1D;">Official Feedback &amp; Application Status Notice</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeEvaluationFeedbackModal()">&times;</button>
+      </div>
+
+      <div id="evaluationFeedbackContent" style="font-size: 13.5px; line-height: 1.65; color: #1E3553;">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 14px; border-top: 1px solid #E5E7EB;">
+        <button class="btn-secondary" onclick="window.closeEvaluationFeedbackModal()">Close</button>
+        <button class="btn-primary" style="background: linear-gradient(135deg, #1E3553 0%, #0F1E36 100%);" onclick="showToast('📥 Downloading Evaluation &amp; Feedback Summary (PDF)...'); setTimeout(() => window.closeEvaluationFeedbackModal(), 800);">
+          📥 Download Feedback Summary (PDF)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       FLOATING AUTO-DISMISSING NOTIFICATION BANNER (No Continue Click Required!)
+       ======================================================================= -->
+  <div class="auto-auth-banner" id="autoAuthBanner">
+    <div class="auto-auth-inner">
+      <span class="auto-auth-icon" id="autoAuthIcon">✅</span>
+      <div class="auto-auth-text">
+        <strong id="autoAuthTitle">Logged In Successfully</strong>
+        <span id="autoAuthSub">Welcome to TalentTrack!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer-compact">
+    <div class="footer-inner">
+      <span>&copy; 2026 TalentTrack • Hiring Platform</span>
+      <span>Hiring Workflow: Application &rarr; Tech Round &rarr; HR Round &rarr; Offer</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+
+  <!-- =======================================================================
+       ANNOUNCE NEW OPENING MODAL (For HR & Recruiting Team)
+       ======================================================================= -->
+  <div class="modal-backdrop" id="announceOpeningModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 550px; max-height: 90vh; overflow-y: auto;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">📢 Announce New Opening</h3>
+          <p class="modal-sub">Create and publish a new job requisition to the careers board</p>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeAnnounceOpeningModal()">&times;</button>
+      </div>
+
+      <form id="announceOpeningForm" onsubmit="event.preventDefault(); window.submitAnnounceOpening();">
+        <div class="form-group">
+          <label class="form-label">Job Title *</label>
+          <input type="text" id="announceTitle" class="form-input" placeholder="e.g. Staff Backend Architect (Go/Distributed)" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Department *</label>
+            <select id="announceDept" class="form-input" required>
+              <option value="Core Engineering">Core Engineering</option>
+              <option value="Web Engineering">Web Engineering</option>
+              <option value="AI & Analytics">AI & Analytics</option>
+              <option value="Product Design">Product Design</option>
+              <option value="Infrastructure">Infrastructure</option>
+              <option value="Quality Engineering">Quality Engineering</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Experience Tier *</label>
+            <select id="announceTier" class="form-input" required>
+              <option value="Fresher">Fresher (0 - 2 Yrs)</option>
+              <option value="Mid-Level">Mid-Level (2 - 5 Yrs)</option>
+              <option value="Senior-Level" selected>Senior-Level (6+ Yrs)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div class="form-group">
+            <label class="form-label">Experience Range *</label>
+            <input type="text" id="announceExp" class="form-input" placeholder="e.g. 5 - 8 Yrs" value="5 - 8 Yrs" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Location *</label>
+            <input type="text" id="announceLocation" class="form-input" placeholder="e.g. Bengaluru (Hybrid)" value="Bengaluru (Hybrid)" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Compensation / Salary (LPA) *</label>
+          <input type="text" id="announceSalary" class="form-input" placeholder="e.g. ₹28.0 - 42.0 LPA" value="₹28.0 - 42.0 LPA" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Required Skills (comma-separated) *</label>
+          <input type="text" id="announceSkills" class="form-input" placeholder="e.g. Golang, Distributed Systems, Kubernetes, Kafka" value="Golang, Distributed Systems, Kubernetes, Kafka" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Role Description / Announcement Note</label>
+          <textarea id="announceDesc" class="form-input" rows="2" placeholder="Brief note about the key responsibilities and hiring goals...">High-impact requisition driving core platform scalability and distributed microservices architecture.</textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+          <button type="button" class="btn-secondary" onclick="window.closeAnnounceOpeningModal()">Cancel</button>
+          <button type="submit" class="btn-primary" style="padding: 10px 22px;">📢 Publish Opening Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

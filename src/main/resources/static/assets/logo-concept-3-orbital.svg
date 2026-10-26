@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="c3Gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D6"/>
+      <stop offset="35%" stop-color="#F2C772"/>
+      <stop offset="70%" stop-color="#C8963E"/>
+      <stop offset="100%" stop-color="#7B4E0F"/>
+    </linearGradient>
+    <linearGradient id="c3CyanPulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <radialGradient id="c3Bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#113639"/>
+      <stop offset="100%" stop-color="#051415"/>
+    </radialGradient>
+    <radialGradient id="c3StarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(247, 208, 136, 0.9)"/>
+      <stop offset="50%" stop-color="rgba(200, 150, 62, 0.3)"/>
+      <stop offset="100%" stop-color="rgba(200, 150, 62, 0)"/>
+    </radialGradient>
+    <filter id="c3Shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Circular Disc -->
+  <circle cx="50" cy="50" r="44" fill="url(#c3Bg)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5"/>
+
+  <!-- Tilted Gyroscopic Orbit Ring (Candidate Progress Track) -->
+  <ellipse cx="50" cy="50" rx="38" ry="16" 
+           transform="rotate(-28 50 50)" 
+           stroke="rgba(255, 255, 255, 0.15)" 
+           stroke-width="2.5" 
+           stroke-dasharray="4 3"/>
+
+  <!-- Active Orbit Sector in Electric Cyan -->
+  <path d="M18,62 C22,46 36,36 54,34" 
+        stroke="url(#c3CyanPulse)" 
+        stroke-width="3" 
+        stroke-linecap="round"/>
+
+  <!-- Fast-Track Ascending Chevron Arrow Vector -->
+  <path d="M24,70 L50,30 L76,70 L50,56 Z" 
+        fill="url(#c3Gold)" 
+        filter="url(#c3Shadow)"/>
+
+  <!-- Central T Monogram Bar cut into Chevron -->
+  <line x1="36" y1="52" x2="64" y2="52" stroke="#0B2325" stroke-width="3" stroke-linecap="round"/>
+  <line x1="50" y1="52" x2="50" y2="68" stroke="#0B2325" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Radiant Talent Beacon Star at Apex -->
+  <circle cx="50" cy="22" r="12" fill="url(#c3StarGlow)"/>
+  <polygon points="50,14 53,20.5 60,22 53,23.5 50,30 47,23.5 40,22 47,20.5" 
+           fill="url(#c3Gold)"/>
+  <circle cx="50" cy="22" r="2" fill="#FFFFFF"/>
+</svg>

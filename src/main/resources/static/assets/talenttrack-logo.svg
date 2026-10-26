@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Fresh Electric Indigo Gradient -->
+    <linearGradient id="freshIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="35%" stop-color="#6366F1"/>
+      <stop offset="70%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#3730A3"/>
+    </linearGradient>
+
+    <!-- Chrome / Platinum Titanium Facet Gradient -->
+    <linearGradient id="freshChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#E2E8F0"/>
+      <stop offset="70%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+
+    <!-- Deep Metallic Shadow on T Bevels -->
+    <linearGradient id="freshIndigoDark" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4338CA"/>
+      <stop offset="50%" stop-color="#312E81"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+
+    <!-- Fresh Mint Emerald Velocity Runway Gradient -->
+    <linearGradient id="freshMintTrack" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Electric Cyan Accent Gradient -->
+    <linearGradient id="freshCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <!-- Medallion Background: Fresh Deep Sapphire Obsidian -->
+    <radialGradient id="freshDialBg" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="45%" stop-color="#0F172A"/>
+      <stop offset="90%" stop-color="#090D16"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+
+    <filter id="freshTShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#0F172A" flood-opacity="0.7"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#4F46E5" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- 1. BASE OBSIDIAN SAPPHIRE DISC WITH CHROME & INDIGO RIMS -->
+  <circle cx="50" cy="50" r="47" fill="url(#freshChrome)" stroke="#4F46E5" stroke-width="1.8" filter="url(#freshTShadow)"/>
+  <circle cx="50" cy="50" r="44.5" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+  <circle cx="50" cy="50" r="43.2" fill="none" stroke="url(#freshCyan)" stroke-width="0.8" opacity="0.85"/>
+  <circle cx="50" cy="50" r="42.5" fill="url(#freshDialBg)"/>
+
+  <!-- Subtle Glaze Arc Reflection -->
+  <path d="M8,50 A42,42 0 0,1 92,50 Z" fill="url(#freshChrome)" opacity="0.08"/>
+
+  <!-- 2. SCULPTURAL 3D BEVELED MONOLITHIC 'T' IN FRESH COLORS (ZERO STARS) -->
+  <g filter="url(#freshTShadow)">
+    <!-- Base Shadow Extrusion -->
+    <path d="M19,26 L81,26 L74,38 L58,38 L58,74 L42,74 L42,38 L26,38 Z" fill="#030712"/>
+
+    <!-- Crossbar Left Chrome Chamfer -->
+    <polygon points="19,26 50,26 44,32 24,32" fill="url(#freshChrome)"/>
+    <polygon points="19,26 24,32 26,38 19,26" fill="#CBD5E1"/>
+
+    <!-- Crossbar Right Shaded Bevel -->
+    <polygon points="50,26 81,26 76,32 44,32" fill="url(#freshIndigoDark)"/>
+    <polygon points="81,26 76,32 74,38 81,26" fill="#1E1B4B"/>
+
+    <!-- Crossbar Front Face (Vibrant Electric Indigo) -->
+    <polygon points="24,32 76,32 72,37 28,37" fill="url(#freshIndigo)"/>
+
+    <!-- Crossbar Underside Chamfers -->
+    <polygon points="26,37 42,37 40,40 28,40" fill="#312E81"/>
+    <polygon points="58,37 74,37 72,40 60,40" fill="#1E1B4B"/>
+
+    <!-- Vertical Stem Left Chrome Bevel -->
+    <polygon points="42,37 50,37 50,71 42,67" fill="url(#freshChrome)"/>
+
+    <!-- Vertical Stem Right Indigo Bevel -->
+    <polygon points="50,37 58,37 58,67 50,71" fill="url(#freshIndigoDark)"/>
+
+    <!-- Vertical Stem Front Face (Electric Indigo Core) -->
+    <polygon points="46,37 54,37 54,68 46,68" fill="url(#freshIndigo)"/>
+
+    <!-- Sculptural Beveled Foot -->
+    <polygon points="42,67 50,71 58,67 50,75" fill="url(#freshIndigoDark)"/>
+
+    <!-- Central Precision Runway Channel (Fresh Mint Emerald) -->
+    <line x1="50" y1="36" x2="50" y2="67" stroke="#030712" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="50" y1="36" x2="50" y2="67" stroke="url(#freshMintTrack)" stroke-width="1.6" stroke-linecap="round"/>
+
+    <!-- 3 Milestone Progression Nodes (Screening, Interview, Offer) -->
+    <circle cx="50" cy="62" r="2" fill="#10B981"/>
+    <circle cx="50" cy="62" r="0.9" fill="#FFFFFF"/>
+    <circle cx="50" cy="49" r="2" fill="#06B6D4"/>
+    <circle cx="50" cy="49" r="0.9" fill="#FFFFFF"/>
+    <circle cx="50" cy="38" r="2.2" fill="#FFFFFF"/>
+    <circle cx="50" cy="38" r="1.1" fill="#4F46E5"/>
+  </g>
+
+  <!-- Precision Dial Accents -->
+  <line x1="50" y1="7" x2="50" y2="10" stroke="#06B6D4" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="50" y1="90" x2="50" y2="93" stroke="#4F46E5" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="7" y1="50" x2="10" y2="50" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="90" y1="50" x2="93" y2="50" stroke="#38BDF8" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

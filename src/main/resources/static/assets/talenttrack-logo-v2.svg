@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="v2FreshIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="40%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+
+    <linearGradient id="v2FreshChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+
+    <radialGradient id="v2FreshBg" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="60%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </radialGradient>
+
+    <filter id="v2FreshShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4.5" flood-color="#0F172A" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <!-- Faceted Hex Shield Base -->
+  <polygon points="50,5 88,24 88,72 50,95 12,72 12,24" 
+           fill="url(#v2FreshBg)" 
+           stroke="url(#v2FreshIndigo)" 
+           stroke-width="2.4" 
+           stroke-linejoin="round"
+           filter="url(#v2FreshShadow)"/>
+
+  <!-- Inner Inset Line -->
+  <polygon points="50,12 81,28 81,68 50,88 19,68 19,28" 
+           fill="none" 
+           stroke="rgba(255, 255, 255, 0.15)" 
+           stroke-width="1.2"/>
+
+  <!-- Lower Emerald Guidance Chevron -->
+  <path d="M26,70 L50,83 L74,70" fill="none" stroke="#10B981" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+
+  <!-- 3D Beveled Sculptural 'T' in Electric Indigo & Chrome -->
+  <g filter="url(#v2FreshShadow)">
+    <polygon points="20,24 50,24 44,30 24,30" fill="url(#v2FreshChrome)"/>
+    <polygon points="50,24 80,24 76,30 44,30" fill="url(#v2FreshIndigo)"/>
+    <polygon points="24,30 76,30 72,36 28,36" fill="#818CF8"/>
+
+    <polygon points="42,36 50,36 50,72 42,68" fill="url(#v2FreshChrome)"/>
+    <polygon points="50,36 58,36 58,68 50,72" fill="#312E81"/>
+    <polygon points="46,36 54,36 54,69 46,69" fill="#4F46E5"/>
+    <polygon points="42,68 50,72 58,68 50,76" fill="#1E1B4B"/>
+
+    <!-- Central Runway & Milestone Pips -->
+    <line x1="50" y1="36" x2="50" y2="68" stroke="#030712" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="50" y1="36" x2="50" y2="68" stroke="#10B981" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="50" cy="62" r="2" fill="#10B981"/>
+    <circle cx="50" cy="49" r="2" fill="#06B6D4"/>
+    <circle cx="50" cy="38" r="2.2" fill="#FFFFFF"/>
+  </g>
+</svg>
