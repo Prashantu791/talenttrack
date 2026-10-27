@@ -3507,3 +3507,294 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4);
 }
 
+/* ==========================================================================
+   ROUND 2 TECHNICAL ASSESSMENT SYSTEM STYLES
+   ========================================================================== */
+.assessment-cta-card {
+  margin: 18px 0;
+  background: linear-gradient(135deg, #F0FDF4 0%, #EFF6FF 100%);
+  border: 1.5px solid #86EFAC;
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.08);
+  transition: all 0.25s ease;
+}
+
+.assessment-cta-card:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.16);
+  border-color: #4ADE80;
+}
+
+.assessment-cta-icon {
+  font-size: 38px;
+  line-height: 1;
+  background: #DCFCE7;
+  border: 1px solid #86EFAC;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.assessment-cta-body {
+  flex: 1;
+}
+
+.assessment-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #065F46;
+  background: #DCFCE7;
+  border: 1px solid #86EFAC;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+}
+
+.assessment-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1E3553;
+  margin-bottom: 6px;
+}
+
+.assessment-desc {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.assessment-meta-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.assessment-meta-pills .meta-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1E40AF;
+  background: #DBEAFE;
+  border: 1px solid #BFDBFE;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.btn-start-assessment {
+  padding: 11px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  border: none;
+  color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-start-assessment:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
+}
+
+.pulse-glow {
+  animation: pulseButtonGlow 2s infinite;
+}
+
+@keyframes pulseButtonGlow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Completed Assessment Card */
+.assessment-completed-card {
+  margin: 18px 0;
+  background: #FFFFFF;
+  border: 1.5px solid #86EFAC;
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+}
+
+.assessment-completed-icon {
+  font-size: 32px;
+  background: #DCFCE7;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.assessment-tag-cleared {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #065F46;
+  background: #DCFCE7;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  margin-bottom: 4px;
+}
+
+/* Assessment Question Pills Nav */
+.assessment-q-pill-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.assessment-q-pill-btn.active {
+  border-color: #5089BD;
+  background: #EFF6FF;
+  color: #1E40AF;
+  box-shadow: 0 0 0 2px rgba(80, 137, 189, 0.2);
+}
+
+.assessment-q-pill-btn.answered {
+  border-color: #86EFAC;
+  background: #F0FDF4;
+  color: #166534;
+}
+
+/* Assessment Question Radio Options */
+.assessment-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-base);
+  background: #FFFFFF;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.assessment-option-card:hover {
+  border-color: #93C5FD;
+  background: #F8FAFC;
+  transform: translateX(3px);
+}
+
+.assessment-option-card.selected {
+  border-color: #5089BD;
+  background: #EFF6FF;
+  box-shadow: 0 2px 8px rgba(80, 137, 189, 0.15);
+}
+
+.assessment-option-letter {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  color: #475569;
+  flex-shrink: 0;
+  background: #F1F5F9;
+  transition: all 0.2s;
+}
+
+.assessment-option-card.selected .assessment-option-letter {
+  background: #5089BD;
+  color: #FFFFFF;
+  border-color: #5089BD;
+}
+
+.assessment-option-text {
+  font-size: 13.5px;
+  color: #1E3553;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.assessment-timer-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3C7;
+  border: 1.5px solid #FCD34D;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.assessment-timer-pill.urgent {
+  background: #FEE2E2;
+  border-color: #FCA5A5;
+  animation: urgentTimerPulse 1s infinite;
+}
+
+@keyframes urgentTimerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   VACANCY REMOVAL & FULFILLMENT BUTTON STYLES
+   ========================================================================== */
+.btn-close-vacancy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #DC2626;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-close-vacancy:hover {
+  background: #DC2626;
+  color: #FFFFFF;
+  border-color: #DC2626;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+.fulfilled-job-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+

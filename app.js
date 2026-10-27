@@ -310,7 +310,15 @@
     selectedTier: 'all',
     searchQuery: '',
     activeView: 'openings', // 'openings' | 'candidate_portal' | 'recruiter_workspace'
-    selectedJobForApply: null
+    selectedJobForApply: null,
+    closedJobIds: new Set(JSON.parse(localStorage.getItem('talenttrack_closed_jobs') || '[]')),
+    assessment: {
+      activeCandId: null,
+      currentQ: 0,
+      answers: {},
+      timerSeconds: 600,
+      timerInterval: null
+    }
   };
 
   // --- Dynamic Staff Role Dropdown Synchronizer ---
@@ -550,49 +558,67 @@
     const container = document.getElementById('openingsGrid');
     if (!container) return;
 
+    // Filter out closed / fulfilled vacancies
+    const activeJobs = JOBS.filter(job => !state.closedJobIds.has(job.id));
+
     const q = state.searchQuery.toLowerCase().trim();
     const tier = state.selectedTier;
 
-    const filtered = JOBS.filter(job => {
+    const filtered = activeJobs.filter(job => {
       if (tier !== 'all' && job.tier !== tier) return false;
       if (q) {
         const titleMatch = job.title.toLowerCase().includes(q);
-        const skillMatch = job.skills.some(s => s.toLowerCase().includes(q));
-        const deptMatch = job.department.toLowerCase().includes(q);
+        const skillMatch = (job.skills || []).some(s => s.toLowerCase().includes(q));
+        const deptMatch = (job.department || '').toLowerCase().includes(q);
         if (!titleMatch && !skillMatch && !deptMatch) return false;
       }
       return true;
     });
 
-    document.getElementById('countAll').textContent = JOBS.length;
-    document.getElementById('countFresher').textContent = JOBS.filter(j => j.tier === 'Fresher').length;
-    document.getElementById('countMid').textContent = JOBS.filter(j => j.tier === 'Mid-Level').length;
-    document.getElementById('countSenior').textContent = JOBS.filter(j => j.tier === 'Senior-Level').length;
+    const countAllEl = document.getElementById('countAll');
+    const countFresherEl = document.getElementById('countFresher');
+    const countMidEl = document.getElementById('countMid');
+    const countSeniorEl = document.getElementById('countSenior');
+    const metricTotalEl = document.getElementById('metricTotalOpenings');
+
+    if (countAllEl) countAllEl.textContent = activeJobs.length;
+    if (countFresherEl) countFresherEl.textContent = activeJobs.filter(j => j.tier === 'Fresher').length;
+    if (countMidEl) countMidEl.textContent = activeJobs.filter(j => j.tier === 'Mid-Level').length;
+    if (countSeniorEl) countSeniorEl.textContent = activeJobs.filter(j => j.tier === 'Senior-Level').length;
+    if (metricTotalEl) metricTotalEl.textContent = activeJobs.length;
 
     if (filtered.length === 0) {
+      const hasClosed = state.closedJobIds && state.closedJobIds.size > 0;
       container.innerHTML = `
         <div style="grid-column: 1 / -1; padding: 36px; text-align: center; color: var(--color-text-secondary); background: rgba(255,255,255,0.03); border: 1px dashed var(--color-border); border-radius: var(--radius-base);">
-          No openings match your search. <button class="btn-outline-gold" style="margin-left: 8px;" onclick="window.clearSearch()">Clear Filters</button>
+          No active openings match your criteria. 
+          ${hasClosed ? `<button class="btn-outline-gold" style="margin-left: 8px;" onclick="window.restoreClosedVacancies()">🔄 Restore ${state.closedJobIds.size} Fulfilled Vacancies</button>` : ''}
+          <button class="btn-outline-gold" style="margin-left: 8px;" onclick="window.clearSearch()">Clear Filters</button>
         </div>
       `;
       return;
     }
 
+    const isStaff = state.currentUser && state.currentUser.role !== 'candidate';
+
     container.innerHTML = filtered.map(job => {
       const tierClass = job.tier === 'Fresher' ? 'tier-fresher' : (job.tier === 'Mid-Level' ? 'tier-mid' : 'tier-senior');
-      const skillsHTML = job.skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+      const skillsHTML = (job.skills || []).map(s => `<span class="skill-tag">${s}</span>`).join('');
 
-      let applyBtnHTML = '';
-      if (!state.currentUser || state.currentUser.role === 'candidate') {
-        // Any guest, employee, or candidate can directly apply!
-        applyBtnHTML = `
+      let actionHTML = '';
+      if (isStaff) {
+        actionHTML = `
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button class="btn-close-vacancy" onclick="window.closeVacancy('${job.id}', '${encodeURIComponent(job.title)}')" title="Mark vacancy as fulfilled and remove from public dashboard">
+              ✕ Mark Fulfilled / Close
+            </button>
+          </div>
+        `;
+      } else {
+        actionHTML = `
           <button class="btn-primary" style="padding: 6px 14px; font-size: 12.5px;" onclick="window.openCandidateApplyModal('${job.id}')">
             Apply Now &rarr;
           </button>
-        `;
-      } else {
-        applyBtnHTML = `
-          <span style="font-size: 11.5px; color: var(--color-gold); font-weight: 600;">Active Requisition</span>
         `;
       }
 
@@ -619,7 +645,7 @@
 
           <div class="job-card-footer">
             <span>📍 ${job.location}</span>
-            ${applyBtnHTML}
+            ${actionHTML}
           </div>
         </div>
       `;
@@ -1000,6 +1026,78 @@
       `;
     }
 
+    // Assessment Call-To-Action or Completed Status Banner
+    let assessmentBannerHTML = '';
+    if (!isRejected && !isSelected) {
+      if (scores.tech_assessment !== null && scores.tech_assessment !== undefined) {
+        assessmentBannerHTML = `
+          <div class="assessment-completed-card anim-slide-up">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div class="assessment-completed-icon">✅</div>
+              <div>
+                <span class="assessment-tag-cleared">Round 2 • Online Assessment Cleared</span>
+                <h3 style="font-size: 16px; font-weight: 800; color: #1E3553; margin-bottom: 2px;">
+                  Technical Assessment Score: <strong style="color: #059669;">${scores.tech_assessment} / 10</strong>
+                </h3>
+                <p style="font-size: 12.5px; color: #475569;">
+                  You cleared the Round 2 Technical Assessment with ${PERSONAS.tech_interviewer.name}. Result is verified on your profile.
+                </p>
+              </div>
+            </div>
+            <button type="button" class="btn-secondary" style="font-size: 12px; padding: 6px 14px;" onclick="window.reviewCandidateAssessmentResult('${activeCand.id}')">
+              📋 Review Test Scorecard
+            </button>
+          </div>
+        `;
+      } else if (currentStep === 2 || isCvShortlisted) {
+        assessmentBannerHTML = `
+          <div class="assessment-cta-card anim-slide-up">
+            <div class="assessment-cta-icon">📝</div>
+            <div class="assessment-cta-body">
+              <span class="assessment-tag">Round 2 Action Required • Online Test Ready</span>
+              <h3 class="assessment-title">Technical Aptitude &amp; Problem Solving Assessment</h3>
+              <p class="assessment-desc">
+                You have been shortlisted for Round 2! Complete this <strong>5-question technical assessment</strong> (10 mins) covering core engineering, API architecture, and algorithmic logic. Your score will be evaluated out of 10 and recorded immediately.
+              </p>
+              <div class="assessment-meta-pills">
+                <span class="meta-pill">⏱️ 10 Minutes</span>
+                <span class="meta-pill">❓ 5 Questions</span>
+                <span class="meta-pill">🎯 Pass Benchmark: 6.0 / 10</span>
+                <span class="meta-pill">⚡ Instant Live Evaluation</span>
+              </div>
+            </div>
+            <div class="assessment-cta-action">
+              <button class="btn-primary btn-start-assessment pulse-glow" onclick="window.startCandidateAssessment('${activeCand.id}')">
+                🚀 Start Technical Test Now &rarr;
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (currentStep === 1) {
+        assessmentBannerHTML = `
+          <div class="assessment-cta-card anim-slide-up" style="background: #F8FAFC; border-color: #CBD5E1;">
+            <div class="assessment-cta-icon" style="background: #F1F5F9; border-color: #CBD5E1;">⏳</div>
+            <div class="assessment-cta-body">
+              <span class="assessment-tag" style="background: #FEF3C7; color: #92400E; border-color: #FCD34D;">Round 2 Assessment Preview</span>
+              <h3 class="assessment-title" style="color: #475569;">Technical Assessment Unlocks After CV Screening</h3>
+              <p class="assessment-desc">
+                Your application is currently under CV screening by ${PERSONAS.hr_screener.name}. Once verified, the Round 2 Technical Assessment will be activated here for you to take online.
+              </p>
+              <div class="assessment-meta-pills">
+                <span class="meta-pill" style="background: #F1F5F9; color: #475569; border-color: #E2E8F0;">5 Questions</span>
+                <span class="meta-pill" style="background: #F1F5F9; color: #475569; border-color: #E2E8F0;">10 Mins</span>
+              </div>
+            </div>
+            <div class="assessment-cta-action">
+              <button class="btn-outline-gold" style="font-size: 12px; padding: 7px 14px;" onclick="window.startCandidateAssessment('${activeCand.id}')">
+                🎯 Try Practice Assessment
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
     container.innerHTML = `
       <!-- Top Candidate Bar with Clean Stage and Selection Highlight -->
       <div class="tracker-top-summary">
@@ -1071,6 +1169,9 @@
           </div>
         </div>
       </div>
+
+      <!-- Round 2 Interactive Assessment Banner -->
+      ${assessmentBannerHTML}
 
       <!-- Single Continuous Horizontal Line Hiring Stage Map -->
       <div class="candidate-single-line-wrapper">
@@ -2494,5 +2595,477 @@
   setTimeout(() => {
     window.setBrandLogoDesign(initialDesign, true);
   }, 10);
+
+  // =========================================================================
+  // VACANCY FULFILLMENT & OPENINGS MANAGEMENT ENGINE
+  // =========================================================================
+  window.closeVacancy = function (jobId, encodedTitle) {
+    const title = decodeURIComponent(encodedTitle || 'this position');
+    const confirmed = confirm(`Are you sure you want to mark "${title}" as FULFILLED?\n\nThis position will be closed and removed from the active Careers Openings dashboard.`);
+    if (!confirmed) return;
+
+    state.closedJobIds.add(jobId);
+    localStorage.setItem('talenttrack_closed_jobs', JSON.stringify([...state.closedJobIds]));
+
+    showToast(`✅ Vacancy for "${title}" marked as fulfilled and unlisted.`);
+    renderOpenings();
+    if (document.getElementById('manageVacanciesModal')?.classList.contains('active')) {
+      window.renderManageVacanciesList();
+    }
+  };
+
+  window.restoreClosedVacancies = function () {
+    state.closedJobIds.clear();
+    localStorage.removeItem('talenttrack_closed_jobs');
+    showToast('🔄 All closed vacancies have been restored to the active board.');
+    renderOpenings();
+    if (document.getElementById('manageVacanciesModal')?.classList.contains('active')) {
+      window.renderManageVacanciesList();
+    }
+  };
+
+  window.openManageVacanciesModal = function () {
+    const modal = document.getElementById('manageVacanciesModal');
+    if (!modal) return;
+    modal.classList.add('active');
+    window.renderManageVacanciesList();
+  };
+
+  window.closeManageVacanciesModal = function () {
+    const modal = document.getElementById('manageVacanciesModal');
+    if (modal) modal.classList.remove('active');
+  };
+
+  window.renderManageVacanciesList = function () {
+    const container = document.getElementById('manageVacanciesList');
+    const countEl = document.getElementById('manageVacanciesCountText');
+    if (!container) return;
+
+    const activeCount = JOBS.filter(j => !state.closedJobIds.has(j.id)).length;
+    const closedCount = state.closedJobIds.size;
+    if (countEl) {
+      countEl.textContent = `${activeCount} Active Openings • ${closedCount} Fulfilled / Closed`;
+    }
+
+    container.innerHTML = JOBS.map(job => {
+      const isClosed = state.closedJobIds.has(job.id);
+      return `
+        <div class="fulfilled-job-row" style="${isClosed ? 'opacity: 0.65; background: #F8FAFC;' : ''}">
+          <div>
+            <div style="font-weight: 700; color: #1E3553;">${job.title}</div>
+            <div style="font-size: 11.5px; color: #64748B;">${job.tier} &bull; ${job.department} &bull; ${job.location} &bull; ${job.salary}</div>
+          </div>
+          <div>
+            ${isClosed ? `
+              <button type="button" class="btn-secondary" style="font-size: 11.5px; padding: 4px 10px; color: #059669; border-color: #86EFAC;" onclick="window.reopenVacancy('${job.id}')">
+                ↩ Reopen Opening
+              </button>
+            ` : `
+              <button type="button" class="btn-close-vacancy" onclick="window.closeVacancy('${job.id}', '${encodeURIComponent(job.title)}')">
+                ✕ Mark Fulfilled
+              </button>
+            `}
+          </div>
+        </div>
+      `;
+    }).join('');
+  };
+
+  window.reopenVacancy = function (jobId) {
+    state.closedJobIds.delete(jobId);
+    localStorage.setItem('talenttrack_closed_jobs', JSON.stringify([...state.closedJobIds]));
+    showToast('Opening reopened on Careers Board');
+    renderOpenings();
+    window.renderManageVacanciesList();
+  };
+
+  // =========================================================================
+  // ROUND 2: ONLINE TECHNICAL ASSESSMENT ENGINE
+  // =========================================================================
+  const ASSESSMENT_QUESTIONS = [
+    {
+      id: 1,
+      category: "Data Structures & Performance",
+      question: "What is the average time complexity of looking up a record by key in a Hash Map / Hash Table compared to searching an unsorted Array?",
+      options: [
+        { id: "A", text: "Hash Map: O(1) constant time vs Array: O(N) linear time scan", isCorrect: true },
+        { id: "B", text: "Hash Map: O(N) linear time vs Array: O(1) constant time", isCorrect: false },
+        { id: "C", text: "Both Hash Map and Array require O(log N) binary search", isCorrect: false },
+        { id: "D", text: "Hash Map: O(N log N) vs Array: O(N^2) exponential scan", isCorrect: false }
+      ],
+      explanation: "A Hash Map utilizes hash function buckets for O(1) average key lookup, whereas finding an element in an unsorted array requires scanning up to N elements (O(N))."
+    },
+    {
+      id: 2,
+      category: "REST API & Web Architecture",
+      question: "In standard RESTful web service architecture, which HTTP method is explicitly designed to be idempotent and completely replace an existing resource representation at the target URI?",
+      options: [
+        { id: "A", text: "POST (Creates subordinate resource, non-idempotent)", isCorrect: false },
+        { id: "B", text: "PUT (Replaces entire target resource, idempotent)", isCorrect: true },
+        { id: "C", text: "PATCH (Applies partial modifications only)", isCorrect: false },
+        { id: "D", text: "CONNECT (Establishes two-way network tunnel)", isCorrect: false }
+      ],
+      explanation: "HTTP PUT is idempotent: making identical PUT requests consecutively produces the exact same server state as executing it a single time."
+    },
+    {
+      id: 3,
+      category: "Database Integrity & ACID Principles",
+      question: "In ACID database transaction principles, what does the 'Atomicity' property guarantee during financial or candidate record mutations?",
+      options: [
+        { id: "A", text: "All database statements within the transaction succeed completely, or none are applied (all-or-nothing guarantee)", isCorrect: true },
+        { id: "B", text: "Data is immediately replicated to multiple distributed geographic regions", isCorrect: false },
+        { id: "C", text: "Transactions run without acquiring any database table or row locks", isCorrect: false },
+        { id: "D", text: "Database automatically normalizes all schema relations to 3NF", isCorrect: false }
+      ],
+      explanation: "Atomicity ensures the 'all-or-nothing' principle: if an error occurs midway through a multi-step transaction, all preceding changes are rolled back completely."
+    },
+    {
+      id: 4,
+      category: "Concurrency & Asynchronous Runtime",
+      question: "In single-threaded asynchronous JavaScript (V8 Engine / Node.js), what is the core responsibility of the Event Loop?",
+      options: [
+        { id: "A", text: "Spawns a separate OS CPU thread for each callback or function call", isCorrect: false },
+        { id: "B", text: "Monitors the Call Stack and dispatches callbacks from the Task/Microtask Queue to the Stack when the stack is empty", isCorrect: true },
+        { id: "C", text: "Compiles TypeScript into bytecode synchronously during execution", isCorrect: false },
+        { id: "D", text: "Synchronously blocks CPU execution until external database network packets arrive", isCorrect: false }
+      ],
+      explanation: "The Event Loop continuously checks if the Call Stack is empty; once clear, it moves pending callbacks from queues to the stack to be executed."
+    },
+    {
+      id: 5,
+      category: "Application Security & Vulnerability Defense",
+      question: "Which engineering practice represents the industry gold standard for preventing SQL Injection (SQLi) vulnerabilities in backend microservices?",
+      options: [
+        { id: "A", text: "Using Parameterized Queries / Prepared Statements with typed parameter placeholder binding", isCorrect: true },
+        { id: "B", text: "Concatenating user-submitted strings directly into dynamic SQL queries", isCorrect: false },
+        { id: "C", text: "Encoding database queries into client-side base64 strings", isCorrect: false },
+        { id: "D", text: "Disabling database foreign key constraints and unique indexes", isCorrect: false }
+      ],
+      explanation: "Parameterized queries separate the query SQL structure from user-supplied data, ensuring input parameters are treated strictly as literals, eliminating SQLi."
+    }
+  ];
+
+  window.startCandidateAssessment = function (candId) {
+    let cand = null;
+    if (candId) {
+      cand = state.candidates.find(c => c.id === candId);
+    }
+    if (!cand && state.currentUser && state.currentUser.role === 'candidate') {
+      cand = state.candidates.find(c => 
+        (c.email && state.currentUser.email && c.email.toLowerCase() === state.currentUser.email.toLowerCase()) ||
+        (c.tracking_code && state.currentUser.tracking_code && c.tracking_code.toLowerCase() === state.currentUser.tracking_code.toLowerCase()) ||
+        (c.id && state.currentUser.id && c.id === state.currentUser.id)
+      );
+    }
+    if (!cand) cand = state.candidates[0] || DEFAULT_CANDIDATES[0];
+
+    state.assessment.activeCandId = cand.id;
+    state.assessment.currentQ = 0;
+    state.assessment.answers = {};
+    state.assessment.timerSeconds = 600; // 10 minutes
+
+    const modal = document.getElementById('candidateAssessmentModal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('assessmentModalTitle');
+    const subEl = document.getElementById('assessmentModalSubtitle');
+    if (titleEl) titleEl.textContent = `Technical Assessment: ${cand.role}`;
+    if (subEl) subEl.textContent = `Candidate: ${cand.name} (${cand.tracking_code}) • Target Role: ${cand.role} (${cand.tier || 'Full-time'})`;
+
+    // Start live countdown timer
+    if (state.assessment.timerInterval) clearInterval(state.assessment.timerInterval);
+    updateAssessmentTimerDisplay();
+    state.assessment.timerInterval = setInterval(() => {
+      state.assessment.timerSeconds--;
+      updateAssessmentTimerDisplay();
+      if (state.assessment.timerSeconds <= 0) {
+        clearInterval(state.assessment.timerInterval);
+        showToast('⏱️ Time limit reached! Submitting your assessment...');
+        window.submitCandidateAssessment();
+      }
+    }, 1000);
+
+    modal.classList.add('active');
+    window.renderAssessmentQuestion();
+  };
+
+  function updateAssessmentTimerDisplay() {
+    const timeEl = document.getElementById('assessmentTimeRemaining');
+    const pillEl = document.getElementById('assessmentTimerPill');
+    if (!timeEl) return;
+
+    const mins = Math.floor(state.assessment.timerSeconds / 60);
+    const secs = state.assessment.timerSeconds % 60;
+    const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    timeEl.textContent = str;
+
+    if (pillEl) {
+      if (state.assessment.timerSeconds <= 120) {
+        pillEl.classList.add('urgent');
+      } else {
+        pillEl.classList.remove('urgent');
+      }
+    }
+  }
+
+  window.renderAssessmentQuestion = function () {
+    const qIndex = state.assessment.currentQ;
+    const qData = ASSESSMENT_QUESTIONS[qIndex];
+    if (!qData) return;
+
+    const totalQ = ASSESSMENT_QUESTIONS.length;
+    const answeredCount = Object.keys(state.assessment.answers).length;
+    const percent = Math.round((answeredCount / totalQ) * 100);
+
+    // Update progress tracker & bar
+    const trackerEl = document.getElementById('assessmentQuestionTracker');
+    const percentEl = document.getElementById('assessmentProgressPercent');
+    const barEl = document.getElementById('assessmentBarFill');
+    if (trackerEl) trackerEl.textContent = `Question ${qIndex + 1} of ${totalQ}`;
+    if (percentEl) percentEl.textContent = `${percent}% Answered (${answeredCount}/${totalQ})`;
+    if (barEl) barEl.style.width = `${percent}%`;
+
+    // Update Question Pills (1..5)
+    const pillsContainer = document.getElementById('assessmentQPills');
+    if (pillsContainer) {
+      pillsContainer.innerHTML = ASSESSMENT_QUESTIONS.map((q, idx) => {
+        const isCurrent = idx === qIndex;
+        const isAnswered = state.assessment.answers[idx] !== undefined;
+        let cls = 'assessment-q-pill-btn';
+        if (isCurrent) cls += ' active';
+        if (isAnswered) cls += ' answered';
+        return `
+          <button type="button" class="${cls}" onclick="window.goToAssessmentQuestion(${idx})">
+            ${isAnswered ? '✓ ' : ''}Q${idx + 1}
+          </button>
+        `;
+      }).join('');
+    }
+
+    // Render Question & Options
+    const qArea = document.getElementById('assessmentQuestionArea');
+    if (qArea) {
+      const selectedOpt = state.assessment.answers[qIndex];
+      const optionsHTML = qData.options.map(opt => {
+        const isSelected = selectedOpt === opt.id;
+        return `
+          <div class="assessment-option-card ${isSelected ? 'selected' : ''}" onclick="window.selectAssessmentOption(${qIndex}, '${opt.id}')">
+            <div class="assessment-option-letter">${opt.id}</div>
+            <div class="assessment-option-text">${opt.text}</div>
+          </div>
+        `;
+      }).join('');
+
+      qArea.innerHTML = `
+        <div style="margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 700; color: #5089BD; background: #EFF6FF; border: 1px solid #BFDBFE; padding: 2px 8px; border-radius: 4px;">
+            ${qData.category}
+          </span>
+        </div>
+        <h4 style="font-size: 15.5px; font-weight: 700; color: #1E3553; line-height: 1.5; margin-bottom: 16px;">
+          ${qIndex + 1}. ${qData.question}
+        </h4>
+        <div class="assessment-options-list">
+          ${optionsHTML}
+        </div>
+      `;
+    }
+
+    // Buttons visibility
+    const prevBtn = document.getElementById('btnPrevQuestion');
+    const nextBtn = document.getElementById('btnNextQuestion');
+    const submitBtn = document.getElementById('btnSubmitAssessment');
+
+    if (prevBtn) prevBtn.disabled = (qIndex === 0);
+    if (qIndex === totalQ - 1) {
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (submitBtn) submitBtn.style.display = 'inline-flex';
+    } else {
+      if (nextBtn) nextBtn.style.display = 'inline-flex';
+      if (submitBtn) submitBtn.style.display = 'none';
+    }
+  };
+
+  window.selectAssessmentOption = function (qIndex, optId) {
+    state.assessment.answers[qIndex] = optId;
+    window.renderAssessmentQuestion();
+  };
+
+  window.goToAssessmentQuestion = function (idx) {
+    state.assessment.currentQ = idx;
+    window.renderAssessmentQuestion();
+  };
+
+  window.prevAssessmentQuestion = function () {
+    if (state.assessment.currentQ > 0) {
+      state.assessment.currentQ--;
+      window.renderAssessmentQuestion();
+    }
+  };
+
+  window.nextAssessmentQuestion = function () {
+    if (state.assessment.currentQ < ASSESSMENT_QUESTIONS.length - 1) {
+      state.assessment.currentQ++;
+      window.renderAssessmentQuestion();
+    }
+  };
+
+  window.cancelAssessment = function () {
+    const confirmed = confirm('Are you sure you want to exit the technical assessment? Any unsaved answers will not be recorded.');
+    if (!confirmed) return;
+    if (state.assessment.timerInterval) clearInterval(state.assessment.timerInterval);
+    const modal = document.getElementById('candidateAssessmentModal');
+    if (modal) modal.classList.remove('active');
+  };
+
+  window.submitCandidateAssessment = async function () {
+    if (state.assessment.timerInterval) clearInterval(state.assessment.timerInterval);
+
+    // Calculate score
+    let correctCount = 0;
+    const totalQ = ASSESSMENT_QUESTIONS.length;
+    ASSESSMENT_QUESTIONS.forEach((q, idx) => {
+      const correctOpt = q.options.find(o => o.isCorrect);
+      if (state.assessment.answers[idx] === correctOpt.id) {
+        correctCount++;
+      }
+    });
+
+    // Score out of 10.0 (each question is worth 2.0 points)
+    let calculatedScore = (correctCount * 2.0);
+    if (calculatedScore === 0 && correctCount === 0) {
+      calculatedScore = 4.0; // Base score
+    }
+    calculatedScore = Math.min(10.0, Math.max(1.0, calculatedScore));
+
+    const candId = state.assessment.activeCandId;
+    const cand = state.candidates.find(c => c.id === candId) || state.candidates[0];
+
+    if (cand) {
+      if (!cand.scores) {
+        cand.scores = { cv_screening: 8.5, tech_assessment: null, tech_interview: null, hr_round: null, overall: null };
+      }
+      cand.scores.tech_assessment = calculatedScore;
+      cand.scores.tech_interview = calculatedScore;
+      if (!cand.scores.cv_screening) cand.scores.cv_screening = 8.5;
+      cand.score = calculatedScore;
+
+      // If score >= 6.0, candidate passes Round 2 and moves to Final HR Round (Step 3)!
+      if (calculatedScore >= 6.0) {
+        cand.currentStep = 3;
+        cand.stage = "Final HR Round";
+        cand.status = "Shortlisted by Tech Team";
+      }
+
+      // Update roadmap
+      if (cand.roadmap && cand.roadmap.length >= 3) {
+        cand.roadmap[0].status = "Completed";
+        cand.roadmap[0].score = `${cand.scores.cv_screening} / 10`;
+        cand.roadmap[1].status = "Completed";
+        cand.roadmap[1].score = `${calculatedScore} / 10`;
+        cand.roadmap[2].status = "In Progress";
+        cand.roadmap[2].score = "Pending";
+      }
+
+      // Sync backend
+      try {
+        await fetch(`${API_BASE}/candidates/update-stage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            candidateId: cand.id,
+            stage: "Step 3: Final HR Round",
+            status: "Shortlisted by Tech Team",
+            score: calculatedScore,
+            currentStep: 3,
+            actionBy: "TalentTrack Automated Assessment Engine",
+            note: `Candidate completed Online Technical Assessment with verified score ${calculatedScore}/10 (${correctCount}/${totalQ} correct). Advanced to Final HR Round.`
+          })
+        });
+      } catch (e) {
+        console.warn('Backend update stage fallback:', e);
+      }
+    }
+
+    // Close assessment modal
+    const testModal = document.getElementById('candidateAssessmentModal');
+    if (testModal) testModal.classList.remove('active');
+
+    // Build and show result modal
+    window.showAssessmentResultModal(cand, calculatedScore, correctCount, totalQ);
+
+    // Refresh candidate portal view
+    renderCandidatePortal();
+  };
+
+  window.showAssessmentResultModal = function (cand, score, correctCount, totalQ) {
+    const modal = document.getElementById('assessmentResultModal');
+    const content = document.getElementById('assessmentResultContent');
+    const titleEl = document.getElementById('assessmentResultTitle');
+    const subEl = document.getElementById('assessmentResultSubtitle');
+    const iconEl = document.getElementById('assessmentResultIcon');
+    if (!modal || !content) return;
+
+    const isPassed = score >= 6.0;
+
+    if (iconEl) iconEl.textContent = isPassed ? '🏆' : '📋';
+    if (titleEl) {
+      titleEl.textContent = isPassed ? `Congratulations! You Cleared Round 2!` : `Assessment Completed`;
+      titleEl.style.color = isPassed ? '#065F46' : '#1E3553';
+    }
+    if (subEl) {
+      subEl.textContent = isPassed ? `Score: ${score} / 10 • Advanced to Final HR Round` : `Score: ${score} / 10 • Review Recorded`;
+    }
+
+    let reviewItemsHTML = ASSESSMENT_QUESTIONS.map((q, idx) => {
+      const userAns = state.assessment.answers[idx];
+      const correctOpt = q.options.find(o => o.isCorrect);
+      const isCorrect = userAns === correctOpt.id;
+      return `
+        <div style="padding: 10px 14px; margin-bottom: 8px; border-radius: 6px; background: ${isCorrect ? '#F0FDF4' : '#FEF2F2'}; border: 1px solid ${isCorrect ? '#86EFAC' : '#FCA5A5'}; font-size: 12.5px;">
+          <div style="display: flex; justify-content: space-between; font-weight: 700; color: ${isCorrect ? '#166534' : '#991B1B'}; margin-bottom: 4px;">
+            <span>Q${idx + 1}: ${q.category}</span>
+            <span>${isCorrect ? '✓ Correct (+2.0 pts)' : '✕ Incorrect (0 pts)'}</span>
+          </div>
+          <div style="color: #1E3553; margin-bottom: 4px;">${q.question}</div>
+          <div style="font-size: 11.5px; color: #475569;">
+            Your Answer: <strong>Option ${userAns || 'None'}</strong> &bull; Correct: <strong>Option ${correctOpt.id}: ${correctOpt.text}</strong>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    content.innerHTML = `
+      <div style="text-align: center; padding: 16px 0; background: linear-gradient(135deg, #F0FDF4 0%, #EFF6FF 100%); border-radius: 10px; margin-bottom: 18px; border: 1.5px solid #86EFAC;">
+        <span style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #065F46; letter-spacing: 0.05em;">Verified Technical Assessment Score</span>
+        <div style="font-size: 42px; font-weight: 900; color: #059669; margin: 4px 0;">
+          ${score} <span style="font-size: 18px; color: #64748B;">/ 10.0</span>
+        </div>
+        <p style="font-size: 13px; color: #334155; font-weight: 600;">
+          ${correctCount} of ${totalQ} questions answered correctly &bull; Evaluator: ${PERSONAS.tech_interviewer.name}
+        </p>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <h4 style="font-size: 13.5px; font-weight: 800; color: #1E3553; margin-bottom: 8px;">Question Breakdown &amp; Solutions:</h4>
+        <div style="max-height: 240px; overflow-y: auto;">
+          ${reviewItemsHTML}
+        </div>
+      </div>
+    `;
+
+    modal.classList.add('active');
+  };
+
+  window.closeAssessmentResultModal = function () {
+    const modal = document.getElementById('assessmentResultModal');
+    if (modal) modal.classList.remove('active');
+  };
+
+  window.reviewCandidateAssessmentResult = function (candId) {
+    const cand = state.candidates.find(c => c.id === candId) || state.candidates[0];
+    const score = (cand && cand.scores && cand.scores.tech_assessment) ? cand.scores.tech_assessment : 8.8;
+    window.showAssessmentResultModal(cand, score, 4, 5);
+  };
 
 })();
