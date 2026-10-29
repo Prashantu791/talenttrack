@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261030_v4">
 </head>
 <body>
 
@@ -477,6 +477,9 @@
 
       <!-- Company Staff Login Pane (Role Dropdown Pattern) -->
       <div id="loginStaffPane" class="login-pane hidden">
+        <!-- Dynamic Alert Container for Staff Login -->
+        <div id="staffLoginError" class="login-error-box hidden" role="alert"></div>
+
         <form onsubmit="event.preventDefault(); window.submitStaffLogin();">
           <div class="form-group">
             <label class="form-label">Select Staff Role</label>
@@ -489,7 +492,7 @@
           <div class="form-group">
             <label class="form-label">Password</label>
             <div class="password-input-wrapper">
-              <input type="password" id="staffPasswordInput" class="form-input" placeholder="Enter staff password" value="TalentTrack2026!" required>
+              <input type="password" id="staffPasswordInput" class="form-input" placeholder="Enter staff password" value="" autocomplete="current-password" required>
               <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('staffPasswordInput', this)" aria-label="Show password" title="Show password">
                 <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
@@ -509,6 +512,49 @@
           </button>
         </form>
       </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       FORGOT / RESET PASSWORD MODAL
+       ======================================================================= -->
+  <div class="modal-backdrop" id="forgotPasswordModal" aria-modal="true" role="dialog">
+    <div class="modal-card anim-slide-up" style="max-width: 440px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Reset Candidate Password</h3>
+          <p class="modal-sub">Enter your registered email and set a new password</p>
+        </div>
+        <button class="modal-close-btn" onclick="window.closeForgotPasswordModal()">&times;</button>
+      </div>
+      <form onsubmit="event.preventDefault(); window.submitForgotPassword();" style="padding-top: 10px;">
+        <div class="form-group">
+          <label class="form-label">Registered Candidate Email</label>
+          <input type="email" id="forgotPasswordEmailInput" class="form-input" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="forgotPasswordNewPassInput" class="form-input" placeholder="Enter new password" required>
+            <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('forgotPasswordNewPassInput', this)" aria-label="Show password" title="Show password">
+              <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-icon-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/>
+                <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                <line x1="2" y1="2" x2="22" y2="22"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px;">
+          <button type="button" class="btn-secondary" onclick="window.closeForgotPasswordModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Update Password &amp; Sign In</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -567,7 +613,7 @@
           <div class="form-group">
             <label class="form-label">Create Login Password *</label>
             <div class="password-input-wrapper">
-              <input type="password" id="applyPassword" class="form-input" placeholder="Create candidate password" value="Candidate@123" required>
+              <input type="password" id="applyPassword" class="form-input" placeholder="Create a login password" value="" required>
               <button type="button" class="password-toggle-btn" onclick="window.togglePasswordVisibility('applyPassword', this)" aria-label="Show password" title="Show password">
                 <svg class="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
@@ -759,7 +805,7 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20261030_v4"></script>
 
   <!-- =======================================================================
        ANNOUNCE NEW OPENING MODAL (For HR & Recruiting Team)
@@ -838,94 +884,6 @@
     </div>
   </div>
 
-  <!-- =======================================================================
-       ROUND 2: ONLINE TECHNICAL ASSESSMENT TEST SUITE MODAL
-       ======================================================================= -->
-  <div class="modal-backdrop" id="candidateAssessmentModal" aria-modal="true" role="dialog">
-    <div class="modal-card anim-slide-up assessment-modal-card" style="max-width: 680px; max-height: 92vh; overflow-y: auto; padding: 26px;">
-      <!-- Assessment Header -->
-      <div class="assessment-header" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 1.5px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 18px;">
-        <div>
-          <span class="role-kicker-pill" style="font-size: 11px; margin-bottom: 6px; display: inline-flex; background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE;">
-            📝 Round 2 • Online Technical Assessment
-          </span>
-          <h3 class="modal-title" id="assessmentModalTitle" style="font-size: 19px; color: #1E3553;">Technical Aptitude &amp; Problem Solving Test</h3>
-          <p class="modal-sub" id="assessmentModalSubtitle" style="font-size: 12.5px; color: #64748B;">Role Requisition Assessment</p>
-        </div>
-        <div class="assessment-timer-pill" id="assessmentTimerPill">
-          <span style="font-size: 16px;">⏱️</span>
-          <span id="assessmentTimeRemaining" style="font-weight: 800; font-family: monospace; font-size: 16px; color: #1E3553;">10:00</span>
-        </div>
-      </div>
-
-      <!-- Question Tracker & Progress -->
-      <div style="margin-bottom: 20px;">
-        <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: #475569; margin-bottom: 6px;">
-          <span id="assessmentQuestionTracker">Question 1 of 5</span>
-          <span id="assessmentProgressPercent" style="color: #5089BD;">0% Completed</span>
-        </div>
-        <div style="height: 6px; background: #E2E8F0; border-radius: 9999px; overflow: hidden; margin-bottom: 14px;">
-          <div id="assessmentBarFill" style="height: 100%; width: 0%; background: linear-gradient(90deg, #5089BD, #10B981); transition: width 0.3s ease;"></div>
-        </div>
-
-        <!-- Question Pills Nav -->
-        <div class="assessment-q-pills" id="assessmentQPills" style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <!-- Rendered dynamically (Pills 1..5) -->
-        </div>
-      </div>
-
-      <!-- Question Content Area -->
-      <div id="assessmentQuestionArea" style="min-height: 240px; margin-bottom: 20px;">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-
-      <!-- Footer Buttons -->
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1.5px solid #E2E8F0; padding-top: 16px;">
-        <button type="button" class="btn-secondary" id="btnPrevQuestion" onclick="window.prevAssessmentQuestion()">
-          &larr; Previous
-        </button>
-        <div style="display: flex; gap: 10px;">
-          <button type="button" class="btn-secondary" style="font-size: 12px; color: #DC2626;" onclick="window.cancelAssessment()">
-            Exit Assessment
-          </button>
-          <button type="button" class="btn-primary" id="btnNextQuestion" onclick="window.nextAssessmentQuestion()">
-            Next Question &rarr;
-          </button>
-          <button type="button" class="btn-primary" id="btnSubmitAssessment" style="display: none; background: linear-gradient(135deg, #059669 0%, #10B981 100%);" onclick="window.submitCandidateAssessment()">
-            ✓ Submit Assessment
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- =======================================================================
-       ASSESSMENT EVALUATION & SCORECARD RESULT MODAL
-       ======================================================================= -->
-  <div class="modal-backdrop" id="assessmentResultModal" aria-modal="true" role="dialog">
-    <div class="modal-card anim-slide-up" style="max-width: 620px; max-height: 90vh; overflow-y: auto; padding: 28px;">
-      <div class="modal-header" style="border-bottom: 2px solid #86EFAC; padding-bottom: 14px; margin-bottom: 16px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div style="font-size: 32px;" id="assessmentResultIcon">🎉</div>
-          <div>
-            <h3 class="modal-title" style="color: #065F46; font-size: 19px;" id="assessmentResultTitle">Technical Assessment Evaluated!</h3>
-            <p class="modal-sub" style="color: #047857;" id="assessmentResultSubtitle">Verified Score &amp; Round 2 Milestone Status</p>
-          </div>
-        </div>
-        <button class="modal-close-btn" onclick="window.closeAssessmentResultModal()">&times;</button>
-      </div>
-
-      <div id="assessmentResultContent" style="font-size: 13.5px; color: #1E3553; line-height: 1.6;">
-        <!-- Populated dynamically by app.js -->
-      </div>
-
-      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; padding-top: 14px; border-top: 1px solid #E2E8F0;">
-        <button class="btn-primary" style="background: linear-gradient(135deg, #1E3553 0%, #0F1E36 100%); padding: 10px 24px;" onclick="window.closeAssessmentResultModal()">
-          View Updated Dashboard &rarr;
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- =======================================================================
        MANAGE VACANCIES MODAL (For Staff / HR to Close Fulfilled Requisitions)
